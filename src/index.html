@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chacha Collins | Frontend Developer</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            glass: 'rgba(255,255,255,0.1)'
+          }
+        }
+      }
+    }
+
+     tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          glass: 'rgba(255,255,255,0.1)'
+        }
+      }
+    }
+  }
+  </script>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+  
+</head>
+
+<body class="bg-slate-950 text-white dark:bg-slate-950 dark:text-white
+             bg-white text-black transition-colors duration-300 overflow-x-hidden font-serif">
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- Logo -->
+    <h1 class="font-bold text-xl">Chacha Collins</h1>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-8 text-sm">
+      <a href="#home"><li  class="hover:text-blue-400 cursor-pointer">Home</li></a>
+      <a href="#about"><li  class="hover:text-blue-400 cursor-pointer">About</li></a>
+      <a href="#services"><li  class="hover:text-blue-400 cursor-pointer">Services</li></a>
+      <a href="#projects"><li  class="hover:text-blue-400 cursor-pointer">Projects</li></a>
+      <a href="#contact"><li  class="hover:text-blue-400 cursor-pointer">Contact</li></a>
+      
+    </ul>
+
+
+    <!-- Hamburger -->
+    <button id="menu-btn"
+      class="md:hidden flex flex-col gap-1.5 focus:outline-none">
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="hidden md:hidden bg-black/60 backdrop-blur-xl border-t border-white/10">
+    <ul class="flex flex-col text-center py-6 gap-6">
+      <a href="#home"><li  class="hover:text-blue-400 cursor-pointer">Home</li></a>
+      <a href="#about"><li  class="hover:text-blue-400 cursor-pointer">About</li></a>
+      <a href="#services"><li  class="hover:text-blue-400 cursor-pointer">Services</li></a>
+      <a href="#projects"><li  class="hover:text-blue-400 cursor-pointer">Projects</li></a>
+      <a href="#contact"><li  class="hover:text-blue-400 cursor-pointer">Contact</li></a>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative min-h-screen flex items-center pt-32 py-24 bg-slate-900 reveal">
+
+ <div class="absolute inset-0 -z-10">
+    <!-- Video -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-full object-cover brightness-75"
+    >
+      <source src="thumbnails/7989667-hd_1080_1920_25fps.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/80"></div>
+
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-blue-900/40 to-slate-950/80"></div>
+  </div>
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- Text -->
+    <div>
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight
+        bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
+        Frontend Developer building fast, conversion-focused websites.<br> <br> Clean code. Modern design. Websites that convert.
+      </h2>
+
+      <p class="mt-6 text-white/100 max-w-xl font-bold">
+        I help businesses turn visitors into customers with clean User Interface and solid frontend logic.
+      </p>
+
+      <div class="mt-8 flex gap-4">
+        <a href="#contact"><button class="px-6 py-3 rounded-xl bg-white text-black font-semibold hover:scale-105 transition">
+        Start a Project
+        </button></a>
+        <a href="#projects"><button class="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
+          See Projects
+        </button></a>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="relative flex justify-center">
+      <div class="absolute w-30 h-30 bg-pink-500/40 blur-3xl rounded-full"></div>
+      <img src="thumbnails/491444201_18490968328016097_414118690802544555_n.jpg" class="relative w-25 h-25 rounded-full shadow-2xl" />
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about"  class="relative py-24  py-24 bg-slate-900 reveal">
+  <!-- Background image with dark overlay -->
+  <div class="absolute inset-0">
+    <img src="thumbnails/mimi.jpg" class="w-full h-full object-cover">
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/90"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 text-white">
+
+    <!-- Left Column -->
+    <div>
+      <h3 class="text-3xl font-bold mb-4">Who I Am</h3>
+      <p class="text-white/80 leading-relaxed">
+       I build premium websites with a strong focus on design, performance, and attention to detail.
+      </p>
+      <p class="mt-4 text-white/80">
+        I focus on crafting modern, dynamic layouts that captivate and engage users.
+      </p>
+    </div>
+
+    <!-- Right Column -->
+    <div>
+      <p class="text-left mb-5 font-bold text-3xl">Expert In:</p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="glass-card">Frontend Development</div>
+        <div class="glass-card">On Time Project Delivery</div>
+        <div class="glass-card">Clean UI/UX</div>
+        <div class="glass-card">Responsive Websites</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Services Section -->
+  <div class="relative max-w-7xl mx-auto px-6 mt-20 text-white">
+    <h3 id="services" class="text-3xl font-bold mb-12 text-left">Services Offered</h3>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="service-card">Responsive Website Design</div>
+      <div class="service-card">Website Development</div>
+      <div class="service-card">UI/UX Design</div>
+      <div class="service-card">Website Redesign</div>
+      <div class="service-card">Cross-Browser Compatibility</div>
+      <div class="service-card">Frontend Maintenance And Updates</div>
+      <div class="service-card">Frontend Web-App Design And Development</div>
+      <div class="service-card">Performance Optimization</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="bg-gradient-to-br from-slate-600 via-slate-800 to-slate-950 py-24 bg-slate-900 py-24 bg-slate-900 reveal">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-12 text-center">Featured Projects</h3>
+
+    <div class="grid md:grid-cols-4 gap-6">
+
+      <!-- PROJECT CARD -->
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-18 205412.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Portfolio Website</h4>
+          <p class="text-sm text-white mt-1">
+            Clean personal portfolio built for freelancers.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="#" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="#" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COPY & CHANGE CONTENT -->
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-18 210345.png" class="w-full h-56 object-cover group-hover:scale-110 transition duration-500" />
+        
+         <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Restaurant Website (kayy. Kafe & Grill)</h4>
+          <p class="text-sm text-white mt-1">
+            A Restaurant Website With Easy Online Ordering.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://kayyfood.com" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/kayy" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+       <!-- PROJECT CARD -->
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-17 190444.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Real Estate Website</h4>
+          <p class="text-sm text-white mt-1">
+            Sleek Real Estate company website showcasing property listings and More.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://chachas-ethics.github.io/realestatepro/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/realestatepro" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+
+
+       <!-- PROJECT CARD -->
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-17 185733.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Financial Institution </h4>
+          <p class="text-sm text-white mt-1">
+            Debt Collection Company showcasing their services and more.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://chachas-ethics.github.io/hekimadebtcollectors" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/hekimadebtcollectors" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-17 185733.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Financial Institution </h4>
+          <p class="text-sm text-white mt-1">
+            Debt Collection Company showcasing their services and more.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://chachas-ethics.github.io/hekimadebtcollectors" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/hekimadebtcollectors" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-17 190444.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Real Estate Website</h4>
+          <p class="text-sm text-white mt-1">
+            Sleek Real Estate company website showcasing property listings and More.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://chachas-ethics.github.io/realestatepro/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/realestatepro" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+       <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-18 210345.png" class="w-full h-56 object-cover group-hover:scale-110 transition duration-500" />
+        
+         <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Restaurant Website (kayy. Kafe & Grill)</h4>
+          <p class="text-sm text-white mt-1">
+            A Restaurant Website With Easy Online Ordering.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">CSS</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="https://kayyfood.com" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="https://github.com/chachas-ethics/kayy" target="_blank" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+        
+
+        <div class="group relative overflow-hidden rounded-2xl border border-white/10">
+        <img src="thumbnails/Screenshot 2025-12-18 205412.png"
+             class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110 " />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/95 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+
+          <h4 class="text-lg font-semibold">Portfolio Website</h4>
+          <p class="text-sm text-white mt-1">
+            Clean personal portfolio built for freelancers.
+          </p>
+
+          <!-- Tech stack -->
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
+            <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 mt-4">
+            <a href="#" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
+              Visit Site
+            </a>
+            <a href="#" class="text-sm px-4 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+              View Source Code
+            </a>
+          </div>
+
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      
+    </section>
+        
+
+
+
+<!-- ================= CTA ================= -->
+<section id="contact" class="relative py-24 bg-gradient-to-r from-blue-600 to-darkblue-600 text-center py-24 bg-slate-900 reveal">
+
+  <!-- Background Video -->
+  <div class="absolute inset-0 overflow-hidden z-0">
+    <video autoplay muted loop class="w-full h-full object-cover brightness-50">
+      <source src="thumbnails/8426049-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Optional dark overlay for extra contrast -->
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <!-- ================= CONTENT ================= -->
+  <div class="relative z-10">
+
+    <h3 class="text-4xl font-bold mb-4">Let’s Build Something Great!</h3>
+    <p class="text-white/90 mb-8">Have a project? I’m ready!</p>
+    <a href="https://wa.me/255788296274" target="_blank"><button class="inline-block px-8 py-3 rounded-xl border border-white hover:bg-white/10 transition mb-16">
+      Contact Me
+    </button></a>
+
+    <p class="mb-12 text-3xl font-bold">Or</p>
+
+    <!-- ================= CONTACT ================= -->
+    <div class="max-w-4xl mx-auto px-6">
+
+      <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Get In Touch
+      </h3>
+      <p class="text-center text-white/70 mb-12">
+        Have a project in mind? Let’s talk.
+      </p>
+
+      <form id="contact-form" class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-6">
+
+        <!-- Name -->
+        <div>
+          <label class="block text-sm mb-2 text-white/80">Your Name</label>
+          <input id="name"
+            type="text"
+            placeholder="John Doe"
+            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white"
+            required
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm mb-2 text-white/80">Email Address</label>
+          <input id="email"
+            type="email"
+            placeholder="you@example.com"
+            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white"
+            required
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-sm mb-2 text-white/80">Message</label>
+          <textarea id="message"
+            rows="5"
+            placeholder="Tell me about your project..."
+            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white resize-none"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Button -->
+        <button
+          type="submit"
+          class="w-full py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition">
+          Send Message
+        </button>
+
+        <!-- Success message placeholder -->
+        <p class="hidden text-green-400 text-center text-sm mt-4">
+          Message sent successfully!
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="py-24 bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 overflow-hidden py-24 reveal">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h3 class="text-3xl md:text-4xl font-bold mb-4">
+      In Their Words...
+    </h3>
+    <p class="text-white/70 mb-12">
+      Trusted by clients and collaborators.
+    </p>
+
+    <!-- Slider -->
+    <div class="relative">
+
+      <div id="testimonial-track"
+        class="flex transition-transform duration-500 ease-in-out">
+
+        <!-- Testimonial 1 -->
+        <div class="min-w-full px-4">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
+            <p class="text-white/80 mb-6">
+              “Chacha delivered a clean, modern website that exceeded expectations. 
+              The design is smooth, responsive, and professional.”
+            </p>
+            <h4 class="font-semibold">Kelvin M.</h4>
+            <span class="text-sm text-white/60">Restaurant Owner</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="min-w-full px-4">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
+            <p class="text-white/80 mb-6">
+              “Very detail-oriented and fast. Communication was clear and the final 
+              product looked premium across all devices.”
+            </p>
+            <h4 class="font-semibold">Aisha N.</h4>
+            <span class="text-sm text-white/60">Operations Manager</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="min-w-full px-4">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
+            <p class="text-white/80 mb-6">
+              “Great frontend work. Clean code, smooth animations, and delivered on time. 
+              I’d definitely recommend him.”
+            </p>
+            <h4 class="font-semibold">Brian K.</h4>
+            <span class="text-sm text-white/60">Startup Founder</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-center gap-4 mt-8">
+        <button id="prev"
+          class="w-10 h-10 rounded-full border border-white/20 hover:bg-white/10 transition">
+          ‹
+        </button>
+        <button id="next"
+          class="w-10 h-10 rounded-full border border-white/20 hover:bg-white/10 transition">
+          ›
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="py-24 bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 bg-slate-950 py-24 bg-slate-900 reveal">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      Skills & Tech Stack
+    </h3>
+    <p class="text-white/70 text-center mb-16">
+      Tools and technologies I work with daily.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Skill Bars -->
+      <div class="space-y-6">
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>HTML</span>
+            <span class="text-white/60">98%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[95%]"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>CSS (Vanilla And Tailwind)</span>
+            <span class="text-white/60">95%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[90%]"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>JavaScript</span>
+            <span class="text-white/60">85%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>Git</span>
+            <span class="text-white/60">85%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
+          </div>
+        </div>
+
+         <div>
+          <div class="flex justify-between mb-2">
+            <span>GitHub</span>
+            <span class="text-white/60">85%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
+          </div>
+        </div>
+
+         <div>
+          <div class="flex justify-between mb-2">
+            <span>Responsive Design</span>
+            <span class="text-white/60">95%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full">
+            <div class="h-2 bg-blue-400 rounded-full w-[95%]"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech Icons -->
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-10 mb-2" />
+          <span class="text-sm">HTML5</span>
+        </div>
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-10 mb-2" />
+          <span class="text-sm">CSS3</span>
+        </div>
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-10 mb-2" />
+          <span class="text-sm">JavaScript</span>
+        </div>
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-10 mb-2" />
+          <span class="text-sm">Tailwind</span>
+        </div>
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-10 mb-2" />
+          <span class="text-sm">Git</span>
+        </div>
+
+        <div class="glass-card flex flex-col items-center justify-center py-6">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-10 mb-2 invert" />
+          <span class="text-sm">GitHub</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSIGHTS / BLOG ================= -->
+<section class="bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 py-24 bg-slate-950 reveal">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      Insights & Articles
+    </h3>
+    <p class="text-white/70 text-center mb-12">
+      Thoughts on frontend development, design, and the modern web.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Article Card -->
+      <article class="group glass-card p-6 hover:scale-[1.02] transition">
+        <span class="text-xs text-blue-400 uppercase">Frontend</span>
+        <h4 class="text-lg font-semibold mt-2 group-hover:text-pink-400 transition">
+          Building Clean, Responsive Layouts That Convert
+        </h4>
+        <p class="text-white/70 text-sm mt-3">
+          Practical principles for crafting layouts that look good and guide users toward action.
+        </p>
+        <a href="frontend.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
+          Read more →
+        </a>
+      </article>
+
+      <!-- Article Card -->
+      <article class="group glass-card p-6 hover:scale-[1.02] transition">
+        <span class="text-xs text-blue-400 uppercase">Performance</span>
+        <h4 class="text-lg font-semibold mt-2 group-hover:text-blue-400 transition">
+          Why Website Speed Matters More Than You Think
+        </h4>
+        <p class="text-white/70 text-sm mt-3">
+          How performance impacts user trust, SEO, and conversions—and what to optimize first.
+        </p>
+        <a href="performance.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
+          Read more →
+        </a>
+      </article>
+
+      <!-- Article Card -->
+      <article class="group glass-card p-6 hover:scale-[1.02] transition">
+        <span class="text-xs text-blue-400 uppercase">UI/UX</span>
+        <h4 class="text-lg font-semibold mt-2 group-hover:text-green-400 transition">
+          Small UI Details That Make a Website Feel Premium
+        </h4>
+        <p class="text-white/70 text-sm mt-3">
+          Micro-interactions, spacing, and motion tricks that elevate user experience.
+        </p>
+        <a href="details.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
+          Read more →
+        </a>
+      </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a href="articles.html"
+        class="inline-block px-8 py-3 rounded-xl border border-white hover:bg-white/10 transition">
+        View All Articles
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black/5 text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
+
+    <!-- Branding -->
+    <div class="text-center md:text-left">
+      <h2 class="font-bold text-xl mb-2">Chacha Collins</h2>
+      <p class="text-white/60 text-sm">Frontend Web Developer</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="flex justify-center gap-6">
+      <a href="#about" class="hover:text-blue-400 transition">About</a>
+      <a href="#services" class="hover:text-blue-400 transition">Services</a>
+      <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex justify-center md:justify-end gap-4">
+      <a href="https://github.com/chachas-ethics" target="_blank" class="hover:text-blue-400 transition">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.583 0-.287-.01-1.045-.015-2.05-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.755-1.333-1.755-1.09-.744.082-.729.082-.729 1.205.085 1.84 1.238 1.84 1.238 1.07 1.833 2.807 1.304 3.492.997.108-.775.418-1.304.762-1.603-2.665-.3-5.466-1.332-5.466-5.931 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.403c1.02.004 2.045.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.805 5.628-5.475 5.922.43.372.814 1.102.814 2.222 0 1.604-.014 2.896-.014 3.287 0 .323.19.7.8.581C20.565 21.796 24 17.297 24 12c0-6.63-5.373-12-12-12z"/>
+        </svg>
+      </a>
+
+      <a href="https://linkedin.com/in/chacha-collins-952709363" target="_blank" class="hover:text-blue-400 transition">
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341.5c-29.64 0-53.64-24-53.64-53.64s24-53.64 53.64-53.64 53.64 24 53.64 53.64-24 53.64-53.64 53.64zM447.9 448h-92.68V302.4c0-34.7-12.45-58.4-43.56-58.4-23.77 0-37.95 16-44.25 31.4-2.28 5.55-2.85 13.33-2.85 21.15V448h-92.78s1.24-241.1 0-266.1h92.78v37.7c12.3-19 34.3-46 83.44-46 60.88 0 106.56 39.7 106.56 125V448z"/>
+  </svg>
+</a>
+
+<a href="https://instagram.com/yourusername" target="_blank" class="hover:text-blue-400 transition">
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="M224.1 141c-63.6 0-115 51.4-115 115s51.4 115 115 115 115-51.4 115-115-51.4-115-115-115zm0 190c-41.6 0-75-33.4-75-75s33.4-75 75-75 75 33.4 75 75-33.4 75-75 75zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.2-93.5-26.3-26.3-57.9-34.5-93.5-36.2-36.9-2.1-147.8-2.1-184.6 0-35.7 1.7-67.3 9.9-93.5 36.2-26.3 26.3-34.5 57.9-36.2 93.5-2.1 36.9-2.1 147.8 0 184.6 1.7 35.7 9.9 67.3 36.2 93.5 26.3 26.3 57.9 34.5 93.5 36.2 36.9 2.1 147.8 2.1 184.6 0 35.7-1.7 67.3-9.9 93.5-36.2 26.3-26.3 34.5-57.9 36.2-93.5 2.1-36.9 2.1-147.7 0-184.6zm-48.1 232c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.3 9-132.8 9s-103.4 2.6-132.8-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.3-9-132.8s-2.6-103.4 9-132.8c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.3-9 132.8-9s103.4-2.6 132.8 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.3 9 132.8s2.7 103.4-9 132.8z"/>
+  </svg>
+</a>
+</a>
+
+<a href="mailto:chachacollins8@gmail.com" target="_blank" class="hover:text-blue-400 transition">
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="M400 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.59L224 288 48 152.59V112h352zm0 304H48c-8.84 0-16-7.16-16-16V175.41l182.39 135.12c6.08 4.49 14.53 4.49 20.61 0L416 175.41V400c0 8.84-7.16 16-16 16z"/>
+  </svg>
+</a>
+
+
+
+
+
+ </div>
+
+  </div>
+
+  <div class="text-center text-white/50 text-sm mt-8">
+    © 2025. All rights reserved.
+  </div>
+</footer>
+
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappMessage = 
+      `Hello Chacha,%0A%0A` +
+      `Name: ${name}%0A` +
+      `Email: ${email}%0A` +
+      `Message:%0A${message}`;
+
+    const phoneNumber = "255788296274"; // your WhatsApp number (no +)
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+
+  const track = document.getElementById("testimonial-track");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+
+  let index = 0;
+  const total = track.children.length;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  next.addEventListener("click", () => {
+    index = (index + 1) % total;
+    updateSlide();
+  });
+
+  prev.addEventListener("click", () => {
+    index = (index - 1 + total) % total;
+    updateSlide();
+  });
+
+  // Auto-slide every 6 seconds
+  setInterval(() => {
+    index = (index + 1) % total;
+    updateSlide();
+  }, 3000);
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const revealOnScroll = () => {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add("active");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+   const toggleBtn = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    root.classList.remove("dark");
+    toggleBtn.textContent = "🌞";
+  } else {
+    root.classList.add("dark");
+    toggleBtn.textContent = "🌙";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    root.classList.toggle("dark");
+
+    if (root.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "🌙";
+    } else {
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "🌞";
+    }
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Chacha Collins",
+  "url": "https://yourportfolio.com",
+  "sameAs": [
+    "https://github.com/chachas-ethics",
+    "https://linkedin.com/in/yourusername",
+    "https://twitter.com/yourusername"
+  ],
+  "jobTitle": "Frontend Developer"
+}
+</script>
+
+
+</body>
+</html>
