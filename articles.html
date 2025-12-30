@@ -14,8 +14,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class=" bg-gradient-to-br from-slate-600 via-slate-800 to-slate-950 text-white selection:bg-blue-500 selection:text-white font-serif">
-
+<body class="bg-gradient-to-br from-slate-600 via-slate-800 to-slate-950 text-white selection:bg-blue-500 selection:text-white font-serif">
+  <div id="page" style="opacity:0;" class="transition-opacity duration-[2000ms] ease-in-out">
   <!-- ================= NAVBAR ================= -->
 <nav class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -165,7 +165,7 @@
     <!-- Branding -->
     <div class="text-center md:text-left">
       <h2 class="font-bold text-xl mb-2">Chacha Collins</h2>
-      <p class="text-white/60 text-sm">Frontend Web Developer</p>
+      <p class="text-white/60 text-sm">Web Designer And Developer</p>
     </div>
 
      <!-- Quick Links -->
@@ -215,6 +215,7 @@
     © 2025. All rights reserved.
   </div>
 </footer>
+</div>
 
 <script>
  const btn = document.getElementById("menu-btn");
@@ -223,6 +224,13 @@
   btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
+
+   // Fade in the page after a tiny delay
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.getElementById("page").style.opacity = "1";
+      }, 50); // slight delay to prevent instant flash
+    });
   </script>
 </body>
 </html>
