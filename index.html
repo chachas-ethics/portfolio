@@ -1,931 +1,1109 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chacha Collins | Frontend Developer</title>
-
-  <!-- Tailwind CDN -->
+   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Developer</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom config -->
+  <!-- Custom Colors -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            glass: 'rgba(255,255,255,0.1)'
+            primary: "#0B1F3A",   // dark blue
+            secondary: "#3BA4F7" // light blue
           }
         }
       }
     }
-
-     tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          glass: 'rgba(255,255,255,0.1)'
-        }
-      }
-    }
-  }
   </script>
-
-<style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-  }
-
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-  
 </head>
 
-<body class="bg-slate-950 text-white dark:bg-slate-950 dark:text-white
-             bg-slate-950 text-black transition-colors duration-300 overflow-x-hidden font-serif">
+<body class="bg-primary text-white">
 
-
-<!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-    <!-- Logo -->
-    <h1 class="font-bold text-xl">Chacha Collins</h1>
-
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex gap-8 text-sm">
-      <a href="#home"><li  class="hover:text-blue-400 cursor-pointer">Home</li></a>
-      <a href="#about"><li  class="hover:text-blue-400 cursor-pointer">About</li></a>
-      <a href="#services"><li  class="hover:text-blue-400 cursor-pointer">Services</li></a>
-      <a href="#projects"><li  class="hover:text-blue-400 cursor-pointer">Projects</li></a>
-      <a href="#contact"><li  class="hover:text-blue-400 cursor-pointer">Contact</li></a>
+  <!-- Navbar Wrapper: Glassmorphism + Sticky -->
+   <!-- Floating Dynamic Island Navbar --><nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-5xl">
+  <div class="relative group">
+    <!-- The "Bioluminescent" Glow -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 rounded-[2rem] blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+    
+    <div class="relative bg-[#020617]/40 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden transition-all duration-300">
       
-    </ul>
+      <!-- Navbar Main Bar -->
+      <div class="flex items-center justify-between px-8 py-4">
+        <!-- Kinetic Logo -->
+        <a href="#" class="flex items-center gap-3 group/logo">
+          <div class="relative w-10 h-10 overflow-hidden rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
+             <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+             <span class="absolute inset-0 flex items-center justify-center font-black text-white italic"> &lt;/> </span>
+          </div>
+          <span class="text-xl font-bold tracking-tighter text-white opacity-80 group-hover/logo:opacity-100 transition-opacity">
+            CHACHA<span class="text-blue-400">COLLINS</span>
+          </span>
+        </a>
 
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#work" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">Projects</a>
+          <a href="#about" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">About Me</a>
+          <a href="#services" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">Services</a>
+        </div>
 
-    <!-- Hamburger -->
-    <button id="menu-btn"
-      class="md:hidden flex flex-col gap-1.5 focus:outline-none">
-      <span class="w-6 h-0.5 bg-white"></span>
-      <span class="w-6 h-0.5 bg-white"></span>
-      <span class="w-6 h-0.5 bg-white"></span>
-    </button>
+        <!-- Desktop CTA Button & Mobile Hamburger Controls -->
+        <div class="flex items-center gap-4">
+          <a href="#hire" class="hidden sm:inline-block relative group/btn overflow-hidden px-8 py-2.5 rounded-full bg-blue-600 text-white font-bold text-sm shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-blue-500/50 transition-all active:scale-95">
+            <span class="relative z-10">INITIATE PROJECT</span>
+            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+          </a>
 
-  </div>
+          <!-- Mobile Toggle Button (Transforms to X) -->
+          <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/5 relative z-50 group/toggle">
+            <span id="line-1" class="w-5 h-0.5 bg-slate-300 rounded transition-all duration-300 origin-center translate-y-[-4px]"></span>
+            <span id="line-2" class="w-5 h-0.5 bg-slate-300 rounded transition-all duration-300 origin-center"></span>
+            <span id="line-3" class="w-5 h-0.5 bg-slate-300 rounded transition-all duration-300 origin-center translate-y-[4px]"></span>
+          </button>
+        </div>
+      </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="hidden md:hidden bg-black/60 backdrop-blur-xl border-t border-white/10">
-    <ul class="flex flex-col text-center py-6 gap-6">
-      <a href="#home"><li  class="hover:text-blue-400 cursor-pointer">Home</li></a>
-      <a href="#about"><li  class="hover:text-blue-400 cursor-pointer">About</li></a>
-      <a href="#services"><li  class="hover:text-blue-400 cursor-pointer">Services</li></a>
-      <a href="#projects"><li  class="hover:text-blue-400 cursor-pointer">Projects</li></a>
-      <a href="#contact"><li  class="hover:text-blue-400 cursor-pointer">Contact</li></a>
-    </ul>
+      <!-- Mobile Dropdown Menu Drawer -->
+      <div id="mobile-menu" class="max-h-0 opacity-0 transition-all duration-300 ease-in-out md:hidden border-t border-transparent px-8">
+        <div class="flex flex-col gap-2 py-6">
+          <a href="#work" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Projects</a>
+          <a href="#about" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">About Me</a>
+          <a href="#services" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Services</a>
+          <a href="#hire" class="menu-link sm:hidden mt-2 text-center px-4 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all">INITIATE PROJECT</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </nav>
 
 
-<!-- ================= HERO ================= -->
-<section id="home" class=" relative min-h-screen flex items-center pt-32 py-24 bg-slate-900 reveal">
-
- <div class="absolute inset-0 -z-10">
-    <!-- Video -->
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="w-full h-full object-cover brightness-75"
-    >
-      <source src="thumbnails/7989667-hd_1080_1920_25fps.mp4" type="video/mp4" />
-    </video>
-
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/80"></div>
-
-    <!-- Gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-blue-900/40 to-slate-950/80"></div>
-  </div>
-  <!-- Content -->
-  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
-    <!-- Text -->
-    <div>
-      <h2 class="text-4xl md:text-6xl font-bold leading-tight
-        bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-        Frontend Developer building fast, conversion-focused websites.<br> <br> Clean code. Modern design. Websites that convert.
-      </h2>
-
-      <p class="mt-6 text-white/100 max-w-xl font-bold">
-        I help businesses turn visitors into customers with clean User Interface and solid frontend logic.
-      </p>
-
-      <div class="mt-8 flex gap-4">
-        <a href="#contact"><button class="px-6 py-3 rounded-xl bg-white text-black font-semibold hover:scale-105 transition">
-        Start a Project
-        </button></a>
-        <a href="#projects"><button class="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
-          See Projects
-        </button></a>
-      </div>
-    </div>
-
-    <!-- Image -->
-    <div class="relative flex justify-center">
-      <div class="absolute w-30 h-30 bg-pink-500/40 blur-3xl rounded-full"></div>
-      <img src="thumbnails/491444201_18490968328016097_414118690802544555_n.jpg" class="relative w-25 h-25 rounded-full shadow-2xl" />
-    </div>
-
-  </div>
-</section>
 
 
-<!-- ================= ABOUT ================= -->
-<section id="about"  class=" relative py-24  py-24 bg-slate-900 reveal">
-  <!-- Background image with dark overlay -->
-  <div class="absolute inset-0">
-    <img src="thumbnails/mimi.jpg" class="w-full h-full object-cover">
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/90"></div>
-  </div>
-
-  <!-- Content -->
-  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 text-white">
-
-    <!-- Left Column -->
-    <div>
-      <h3 class="text-3xl font-bold mb-4">Who I Am</h3>
-      <p class="text-white/80 leading-relaxed">
-       I build premium websites with a strong focus on design, performance, and attention to detail.
-      </p>
-      <p class="mt-4 text-white/80">
-        I focus on crafting modern, dynamic layouts that captivate and engage users.
-      </p>
-    </div>
-
-    <!-- Right Column -->
-    <div>
-      <p class="text-left mb-5 font-bold text-3xl">Expert In:</p>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="glass-card">Frontend Development</div>
-        <div class="glass-card">On Time Project Delivery</div>
-        <div class="glass-card">Clean UI/UX</div>
-        <div class="glass-card">Responsive Websites</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Services Section -->
-  <div class="relative max-w-7xl mx-auto px-6 mt-20 text-white">
-    <h3 id="services" class="text-3xl font-bold mb-12 text-left">Services Offered</h3>
-
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="service-card">Responsive Website Design</div>
-      <div class="service-card">Website Development</div>
-      <div class="service-card">UI/UX Design</div>
-      <div class="service-card">Website Redesign</div>
-      <div class="service-card">Cross-Browser Compatibility</div>
-      <div class="service-card">Frontend Maintenance And Updates</div>
-      <div class="service-card">Frontend Web-App Design And Development</div>
-      <div class="service-card">Performance Optimization</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class=" bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 py-24 bg-slate-900 py-24 bg-slate-900 reveal">
-  <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-3xl font-bold mb-12 text-center">Featured Projects</h3>
-
-    <div class="grid md:grid-cols-4 gap-6">
-
-      <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
+<!-- HERO SECTION -->
+ <section class="relative min-h-screen flex items-center justify-center pt-24 pb-20 overflow-hidden bg-[#020617]">
   
-  <h4 class="text-lg font-semibold">Portfolio Website</h4>
-  <p class="text-sm text-white mt-1">
-    Clean personal portfolio built for freelancers.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
+  <!-- Hyper-Realistic Background Depth -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[160px] animate-pulse"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/20 rounded-full blur-[160px]"></div>
+    <!-- Digital Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;"></div>
   </div>
 
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/portfolio/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-   <a
-  href="https://github.com/chachas-ethics/portfolio"
-  target="_blank"
-  rel="noopener"
-  class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition"
->
-  View Source Code
-</a>
-
-  </div>
-</div>
-
-
-  <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Restaurant Website</h4>
-  <p class="text-sm text-white mt-1">
-    A restaurant website with easy online ordering.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://kayyfood.com" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/kayy" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+    <div class="grid lg:grid-cols-12 gap-16 items-center">
       
-
-       <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Real Estate website</h4>
-  <p class="text-sm text-white mt-1">
-    Sleek Real Estate company website showcasing property listings and More.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/realestatepro/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/realestatepro" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-        <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Financial Institution</h4>
-  <p class="text-sm text-white mt-1">
-    Debt Collection Company showcasing their services and more.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/hekimadebtcollectors/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/hekimadebtcollectors" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-       <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Financial Institution</h4>
-  <p class="text-sm text-white mt-1">
-    Debt Collection Company showcasing their services and more.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/hekimadebtcollectors/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/hekimadebtcollectors" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-        <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Real Estate Website</h4>
-  <p class="text-sm text-white mt-1">
-    Sleek Real Estate company website showcasing property listings and More.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/realestatepro/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/realestatepro" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-         <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Restaurant Website </h4>
-  <p class="text-sm text-white mt-1">
-    A Restaurant Website With Easy Online Ordering.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://kayyfood.com" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/kayy" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-  <!-- PROJECT CARD -->
-     <div class="relative rounded-2xl border backdrop-blur-xl border-white/10 bg-slate-900 p-5">
-  
-  <h4 class="text-lg font-semibold">Portfolio Website</h4>
-  <p class="text-sm text-white mt-1">
-    Clean personal portfolio built for freelancers.
-  </p>
-
-  <!-- Tech stack -->
-  <div class="flex gap-2 mt-3 text-xs">
-    <span class="px-2 py-1 bg-white/10 rounded">HTML</span>
-    <span class="px-2 py-1 bg-white/10 rounded">Tailwind</span>
-    <span class="px-2 py-1 bg-white/10 rounded">JS</span>
-  </div>
-
-  <!-- Buttons -->
-  <div class="flex gap-3 mt-4">
-    <a href="https://chachas-ethics.github.io/portfolio/" target="_blank" class="text-sm px-4 py-2 bg-white text-black rounded-lg hover:scale-105 transition">
-      Visit Site
-    </a>
-    <a href="https://github.com/chachas-ethics/portfolio" target="_blank" rel="noopener" class="px-4 py-2 border rounded-lg hover:bg-black hover:text-white transition">
-      View Source Code
-    </a>
-  </div>
-</div>
-      </div>
-      </div>
-      </div>
-
-      
-    </section>
+      <!-- Content: 7 Columns -->
+      <div class="lg:col-span-7 space-y-10 order-2 lg:order-1">
         
+        <div class="inline-flex items-center gap-3 mt-10 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500 shadow-[0_0_10px_#22d3ee]"></span>
+          </span>
+          <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">System Online: Accepting Projects</span>
+        </div>
 
+        <h1 style="font-family: inter;" class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tighter">
+          CRAFTING <br/>
+          <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500">DIGITAL</span> <br/>
+          SYMPHONIES
+        </h1>
 
+        <p class="text-slate-400 text-lg md:text-2xl max-w-xl leading-relaxed font-light">
+          Merging <span class="text-white font-medium">technical precision</span> with <span class="text-white font-medium">aesthetic soul</span> to build the next generation of web experiences.
+        </p>
 
-<!-- ================= CTA ================= -->
-<section id="contact" class=" relative py-24 bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950  text-center py-24 bg-slate-900 reveal">
+        <div class="flex flex-wrap gap-6">
+          <a href="#work" style="font-family: inter;" class="relative px-10 py-5 bg-blue-600 text-white font-black rounded-2xl group overflow-hidden transition-all hover:shadow-[0_0_50px_rgba(37,99,235,0.4)]">
+            <span class="relative z-10">INITIATE PROJECT</span>
+            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+          </a>
+          <a href="#contact" style="font-family: inter;" class="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl backdrop-blur-xl hover:bg-white/10 transition-all">
+            GET IN TOUCH
+          </a>
+        </div>
+      </div>
 
+      <!-- Visual: 5 Columns -->
+      <div class="lg:col-span-5 relative order-1 lg:order-2">
+        <!-- The Orbiting Ring -->
+        <div class="absolute bg-blue-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] border border-dashed border-white/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
+
+        <!-- The Photo Container with Organic Shape -->
+        <div class="relative w-full aspect-square md:w-[450px] md:h-[450px] mx-auto">
+          <!-- Back Glow -->
+          <div class="absolute inset-0 bg-blue-500/20 rounded-[4rem] rotate-6 blur-2xl"></div>
+          
+          <!-- The Shape -->
+          <div class="relative w-full h-full rounded-full mt-10 overflow-hidden border border-white/20 shadow-2xl group">
+             <img src="thumbnails/491444201_18490968328016097_414118690802544555_n.jpg" 
+                  alt="Professional Portrait" 
+                  class="w-full h-full object-cover rounded-full scale-110 group-hover:scale-100 transition-transform duration-1000 grayscale group-hover:grayscale-0" />
+             
+             <!-- Glass Scan-line Effect -->
+             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-[2000ms]"></div>
+          </div>
+
+         
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+ <section id="projects" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
   
+  <!-- High-Fidelity Background Noise & Glows -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://vercel.app')]"></div>
+  <div class="absolute top-[10%] right-[-5%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[160px]"></div>
 
-  <!-- ================= CONTENT ================= -->
-  <div class="relative z-10">
-
-    <h3 class="text-4xl font-bold mb-4">Let’s Build Something Great!</h3>
-    <p class="text-white/90 mb-8">Have a project? I’m ready!</p>
-    <a href="https://wa.me/255788296274" target="_blank"><button class="inline-block px-8 py-3 rounded-xl border bg-slate-900 border-white hover:bg-white/20 transition mb-16">
-      Contact Me
-    </button></a>
-
-    <p class="mb-12 text-3xl font-bold">Or</p>
-
-    <!-- ================= CONTACT ================= -->
-    <div class="max-w-4xl mx-auto px-6">
-
-      <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
-        Get In Touch
-      </h3>
-      <p class="text-center text-white/70 mb-12">
-        Have a project in mind? Let’s talk.
+  <!-- Section Header with Kinetic Typography -->
+  <div class="relative z-10 max-w-7xl mx-auto mb-32">
+    <div class="grid md:grid-cols-2 gap-10 items-end">
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-12 h-[1px] bg-blue-500"></span>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.4em] uppercase">The Portfolio</span>
+        </div>
+        <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none">
+          SELECTED <br/> <span class="text-slate-700 italic">ARTIFACTS</span>
+        </h3>
+      </div>
+      <p class="text-slate-400 text-lg md:text-xl font-light leading-relaxed border-l border-white/10 pl-8">
+        Where pixel-perfect <span class="text-white">aesthetics</span> meet industrial-grade <span class="text-white">performance</span>. Each build is a custom solution for high-growth visionaries.
       </p>
-
-      <form id="contact-form" class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-6">
-
-        <!-- Name -->
-        <div>
-          <label class="block text-sm mb-2 text-white/80">Your Name</label>
-          <input id="name"
-            type="text"
-            placeholder="John Doe"
-            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white"
-            required
-          />
-        </div>
-
-        <!-- Email -->        
-        <div>
-          <label class="block text-sm mb-2 text-white/80">Email Address</label>
-          <input id="email"
-            type="email"
-            placeholder="you@example.com"
-            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white"
-            required
-          />
-        </div>
-
-        <!-- Message -->
-        <div>
-          <label class="block text-sm mb-2 text-white/80">Message</label>
-          <textarea id="message"
-            rows="5"
-            placeholder="Tell me about your project..."
-            class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white resize-none"
-            required
-          ></textarea>
-        </div>
-
-        <!-- Button -->
-        <button
-          type="submit"
-          class="w-full py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition">
-          Send Message
-        </button>
-
-        <!-- Success message placeholder -->
-        <p class="hidden text-green-400 text-center text-sm mt-4">
-          Message sent successfully!
-        </p>
-
-      </form>
-
     </div>
   </div>
-</section>
 
+  <!-- Projects: Large Cinematic Cards -->
+  <div class="max-w-7xl mx-auto space-y-40 relative z-10 project-container">
 
-<!-- ================= TESTIMONIALS ================= -->
-<section class=" py-24 bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 overflow-hidden py-24 reveal">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-
-    <h3 class="text-3xl md:text-4xl font-bold mb-4">
-      In Their Words...
-    </h3>
-    <p class="text-white/70 mb-12">
-      Trusted by clients and collaborators.
-    </p>
-
-    <!-- Slider -->
-    <div class="relative">
-
-      <div id="testimonial-track"
-        class="flex transition-transform duration-500 ease-in-out">
-
-        <!-- Testimonial 1 -->
-        <div class="min-w-full px-4">
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
-            <p class="text-white/80 mb-6">
-              “Chacha delivered a clean, modern website that exceeded expectations. 
-              The design is smooth, responsive, and professional.”
-            </p>
-            <h4 class="font-semibold">Kelvin M.</h4>
-            <span class="text-sm text-white/60">Restaurant Owner</span>
+    <!-- PROJECT 1: REAL ESTATE (Left Image) -->
+    <div class="group grid lg:grid-cols-12 gap-12 items-center project-item">
+      <div class="lg:col-span-7 relative browser-frame">
+        <!-- The "Browser UI" Frame -->
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+          <div class="bg-white/5 backdrop-blur-md px-4 py-3 border-b border-white/10 flex gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500/20"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/20"></div>
+          </div>
+          <div class="aspect-video relative overflow-hidden bg-slate-900">
+             <img src="thumbnails/Screenshot 2026-04-08 200819.png" alt="Real Estate" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+             <!-- Hover Mask -->
+             <div class="absolute inset-0 bg-blue-600/20 opacity-100 group-hover:opacity-0 transition-opacity duration-700"></div>
           </div>
         </div>
-
-        <!-- Testimonial 2 -->
-        <div class="min-w-full px-4">
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
-            <p class="text-white/80 mb-6">
-              “Very detail-oriented and fast. Communication was clear and the final 
-              product looked premium across all devices.”
-            </p>
-            <h4 class="font-semibold">Aisha N.</h4>
-            <span class="text-sm text-white/60">Operations Manager</span>
-          </div>
+        <!-- Decorative Skill Floating Badge -->
+        <div class="absolute -bottom-6 -right-6 p-6 bg-slate-950/80 backdrop-blur-2xl border border-white/10 rounded-2xl hidden md:block animate-bounce-slow">
+            <div class="flex -space-x-3">
+              <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-slate-950 flex items-center justify-center text-[10px] font-bold">R</div>
+              <div class="w-10 h-10 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center text-[10px] font-bold">TW</div>
+            </div>
         </div>
-
-        <!-- Testimonial 3 -->
-        <div class="min-w-full px-4">
-          <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-xl mx-auto">
-            <p class="text-white/80 mb-6">
-              “Great frontend work. Clean code, smooth animations, and delivered on time. 
-              I’d definitely recommend him.”
-            </p>
-            <h4 class="font-semibold">Brian K.</h4>
-            <span class="text-sm text-white/60">Startup Founder</span>
-          </div>
-        </div>
-
       </div>
-
-      <!-- Controls -->
-      <div class="flex justify-center gap-4 mt-8">
-        <button id="prev"
-          class="w-10 h-10 rounded-full border border-white/20 hover:bg-white/10 transition">
-          ‹
-        </button>
-        <button id="next"
-          class="w-10 h-10 rounded-full border border-white/20 hover:bg-white/10 transition">
-          ›
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= SKILLS ================= -->
-<section class=" py-24 bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 bg-slate-950 py-24 bg-slate-900 reveal">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
-      Skills & Tech Stack
-    </h3>
-    <p class="text-white/70 text-center mb-16">
-      Tools and technologies I work with daily.
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <!-- Skill Bars -->
-      <div class="space-y-6">
-
-        <div>
-          <div class="flex justify-between mb-2">
-            <span>HTML</span>
-            <span class="text-white/60">98%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[95%]"></div>
-          </div>
+      <div class="lg:col-span-5 space-y-6 project-text">
+        <h4 class="text-blue-400 font-mono text-sm tracking-widest uppercase">01.  Real Estate</h4>
+        <h5 style="font-family: inter;" class="text-4xl md:text-5xl font-bold text-white tracking-tight">The Estate Engine</h5>
+        <p class="text-slate-400 text-lg leading-relaxed">A high-conversion property discovery engine. Engineered for <span class="text-white">sub-second filtering</span> and immersive UI transitions that keep high-ticket buyers engaged.</p>
+        <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+          <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Performance</p><p class="text-white font-bold text-xl">+40% SPEED</p></div>
+          <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact</p><p class="text-white font-bold text-xl">2X LEADS</p></div>
         </div>
-
-        <div>
-          <div class="flex justify-between mb-2">
-            <span>CSS (Vanilla And Tailwind)</span>
-            <span class="text-white/60">95%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[90%]"></div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between mb-2">
-            <span>JavaScript</span>
-            <span class="text-white/60">85%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between mb-2">
-            <span>Git</span>
-            <span class="text-white/60">85%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
-          </div>
-        </div>
-
-         <div>
-          <div class="flex justify-between mb-2">
-            <span>GitHub</span>
-            <span class="text-white/60">85%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[85%]"></div>
-          </div>
-        </div>
-
-         <div>
-          <div class="flex justify-between mb-2">
-            <span>Responsive Design</span>
-            <span class="text-white/60">95%</span>
-          </div>
-          <div class="w-full h-2 bg-white/10 rounded-full">
-            <div class="h-2 bg-blue-400 rounded-full w-[95%]"></div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Tech Icons -->
-      <div class="grid grid-cols-3 gap-6">
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-10 mb-2" />
-          <span class="text-sm">HTML5</span>
-        </div>
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-10 mb-2" />
-          <span class="text-sm">CSS3</span>
-        </div>
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-10 mb-2" />
-          <span class="text-sm">JavaScript</span>
-        </div>
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-10 mb-2" />
-          <span class="text-sm">Tailwind</span>
-        </div>
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-10 mb-2" />
-          <span class="text-sm">Git</span>
-        </div>
-
-        <div class="glass-card flex flex-col items-center justify-center py-6">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-10 mb-2 invert" />
-          <span class="text-sm">GitHub</span>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= INSIGHTS / BLOG ================= -->
-<section class="bg-gradient-to-r from-slate-600 to-slate-800 to-slate-950 py-24 bg-slate-950 reveal">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h3 class="text-3xl md:text-4xl font-bold text-center mb-4">
-      Insights & Articles
-    </h3>
-    <p class="text-white/70 text-center mb-12">
-      Thoughts on frontend development, design, and the modern web.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- Article Card -->
-      <article class="group glass-card p-6 hover:scale-[1.02] transition">
-        <span class="text-xs text-blue-400 uppercase">Frontend</span>
-        <h4 class="text-lg font-semibold mt-2 group-hover:text-pink-400 transition">
-          Building Clean, Responsive Layouts That Convert
-        </h4>
-        <p class="text-white/70 text-sm mt-3">
-          Practical principles for crafting layouts that look good and guide users toward action.
-        </p>
-        <a href="frontend.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
-          Read more →
+        <a href="https://chachas-ethics.github.io/realestate/" target="_blank" style="font-family: inter;" class="inline-flex items-center gap-4 text-white font-bold group/link mt-6">
+          EXPLORE DEPLOYMENT 
+          <span class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover/link:bg-blue-600 group-hover/link:border-blue-600 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </span>
         </a>
-      </article>
-
-      <!-- Article Card -->
-      <article class="group glass-card p-6 hover:scale-[1.02] transition">
-        <span class="text-xs text-blue-400 uppercase">Performance</span>
-        <h4 class="text-lg font-semibold mt-2 group-hover:text-blue-400 transition">
-          Why Website Speed Matters More Than You Think
-        </h4>
-        <p class="text-white/70 text-sm mt-3">
-          How performance impacts user trust, SEO, and conversions—and what to optimize first.
-        </p>
-        <a href="performance.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
-          Read more →
-        </a>
-      </article>
-
-      <!-- Article Card -->
-      <article class="group glass-card p-6 hover:scale-[1.02] transition">
-        <span class="text-xs text-blue-400 uppercase">UI/UX</span>
-        <h4 class="text-lg font-semibold mt-2 group-hover:text-green-400 transition">
-          Small UI Details That Make a Website Feel Premium
-        </h4>
-        <p class="text-white/70 text-sm mt-3">
-          Micro-interactions, spacing, and motion tricks that elevate user experience.
-        </p>
-        <a href="details.html" class="inline-block mt-4 text-sm text-blue-400 hover:underline">
-          Read more →
-        </a>
-      </article>
-
+      </div>
     </div>
 
-    <!-- CTA -->
-    <div class="text-center mt-12">
-      <a href="articles.html"
-        class="inline-block px-8 py-3 rounded-xl bg-slate-900 border border-white hover:bg-white/10 transition">
-        View All Articles
-      </a>
+
+       <!-- PROJECT 2: BOOKING (Right Image) -->
+<div class="group grid lg:grid-cols-12 gap-12 items-center project-item">
+  
+  <!-- Added 'project-text' here for the sliding motion -->
+  <div class="lg:col-span-5 order-2 lg:order-1 space-y-6 project-text">
+    <h4 class="text-indigo-400 font-mono text-sm tracking-widest uppercase">02. CLEARING AND FORWARDING</h4>
+    <h5 style="font-family: inter;" class="text-4xl md:text-5xl font-bold text-white tracking-tight">Velocity Freight</h5>
+    <p class="text-slate-400 text-lg leading-relaxed">Redefining customs clearance and freight forwarding. Focused on <span class="text-white">automated supply chains</span> and real-time cargo visibility.</p>
+    <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+      <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Customs Clearance</p><p class="text-white font-bold text-xl">100% Compliant</p></div>
+      <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Transit Time</p><p class="text-white font-bold text-xl">OPTIMIZED</p></div>
+    </div>
+    <a href="https://chachas-ethics.github.io/Logistics/" target="_blank" style="font-family: inter;" class="inline-flex items-center gap-4 text-white font-bold group/link mt-6">
+      VIEW CASE STUDY
+      <span class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover/link:bg-indigo-600 group-hover/link:border-indigo-600 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </span>
+    </a>
+  </div>
+
+  <!-- Added 'browser-frame' here for the 3D zoom and tilt -->
+  <div class="lg:col-span-7 order-1 lg:order-2 relative browser-frame">
+    <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+      <div class="bg-white/5 backdrop-blur-md px-4 py-3 border-b border-white/10 flex gap-1.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-500/20"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/20"></div>
+      </div>
+      <div class="aspect-video relative overflow-hidden bg-slate-900">
+         <img src="thumbnails/Screenshot 2026-05-12 041805.png" alt="Clearing and Forwarding Dashboard UI" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+         <div class="absolute inset-0 bg-indigo-600/20 opacity-100 group-hover:opacity-0 transition-opacity duration-700"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <!-- PROJECT 1: REAL ESTATE (Left Image) -->
+    <div class="group grid lg:grid-cols-12 gap-12 items-center project-item">
+      <div class="lg:col-span-7 relative browser-frame">
+        <!-- The "Browser UI" Frame -->
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+          <div class="bg-white/5 backdrop-blur-md px-4 py-3 border-b border-white/10 flex gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500/20"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/20"></div>
+          </div>
+          <div class="aspect-video relative overflow-hidden bg-slate-900">
+             <img src="thumbnails/Screenshot 2026-05-12 042709.png" alt="Digital Agency Portfolio Website" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+             <!-- Hover Mask -->
+             <div class="absolute inset-0 bg-blue-600/20 opacity-100 group-hover:opacity-0 transition-opacity duration-700"></div>
+          </div>
+        </div>
+        <!-- Decorative Skill Floating Badge -->
+        <div class="absolute -bottom-6 -right-6 p-6 bg-slate-950/80 backdrop-blur-2xl border border-white/10 rounded-2xl hidden md:block animate-bounce-slow">
+            <div class="flex -space-x-3">
+              <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-slate-950 flex items-center justify-center text-[10px] font-bold">R</div>
+              <div class="w-10 h-10 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center text-[10px] font-bold">TW</div>
+            </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 space-y-6 project-text">
+        <h4 class="text-blue-400 font-mono text-sm tracking-widest uppercase">03. TECH & CREATIVE AGENCY</h4>
+        <h5 style="font-family: inter;" class="text-4xl md:text-5xl font-bold text-white tracking-tight">The Growth Engine</h5>
+        <p class="text-slate-400 text-lg leading-relaxed">An all-in-one digital ecosystem. Engineered for <span class="text-white">high-converting websites</span>, bespoke graphics, and automated social media marketing campaigns that maximize brand engagement.</p>
+        <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+          <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Web & Graphics</p><p class="text-white font-bold text-xl">BESPOKE UI</p></div>
+          <div><p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Marketing ROI</p><p class="text-white font-bold text-xl">3X CONVERSION</p></div>
+        </div>
+        <a href="https://synlotech.com" target="_blank" style="font-family: inter;" class="inline-flex items-center gap-4 text-white font-bold group/link mt-6">
+          EXPLORE DEPLOYMENT 
+          <span class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover/link:bg-blue-600 group-hover/link:border-blue-600 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </span>
+        </a>
+      </div>
     </div>
 
+  </div>
+
+</section>
+
+
+
+<!-- SERVICES SECTION --> <section id="services" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+  
+  <!-- Digital Grid Floor -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none grid-floor" 
+       style="background-image: linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px); background-size: 50px 50px; transform: perspective(500px) rotateX(60deg) translateY(-100px);"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+    <!-- Section Header: Left Aligned for "Edge" -->
+    <div class="mb-24">
+        <div class="flex items-center gap-4 mb-6">
+            <span class="w-16 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></span>
+            <span class="text-blue-400 font-mono text-xs tracking-[0.5em] uppercase">Expertise</span>
+        </div>
+        <h3 style="font-family: inter;" class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none mb-8">
+            DIGITAL <br/> <span class="text-slate-700 italic">NICHES</span>
+        </h3>
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl font-light">
+            I build tailored, industry-specific web applications designed to streamline <span class="text-white">your business operations</span> and accelerate digital growth.
+        </p>
+    </div>
+
+    <!-- Services Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
+
+      <!-- SERVICE 1: BIG CARD (Lg: 8 cols) - Corporate Company Websites -->
+      <div class="md:col-span-3 lg:col-span-8 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-blue-500/50">
+        <div class="relative z-10 flex flex-col h-full">
+          <div class="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center border border-blue-500/20 mb-8 group-hover:rotate-12 transition-transform duration-500">
+             <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h4 style="font-family: inter;" class="text-3xl font-bold text-white mb-4">Corporate & Company Websites</h4>
+          <p class="text-slate-400 text-lg mb-8 max-w-md">High-end digital headquarters crafted to anchor your brand identity, establish industry authority, and capture high-value inbound B2B leads.</p>
+          <div class="flex flex-wrap gap-3 mb-10">
+            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Brand Identity</span>
+            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Lead Generation</span>
+            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">SEO Optimized</span>
+          </div>
+          <div class="mt-auto flex items-end justify-between">
+            <div class="text-white"><span class="text-slate-500 text-xs block uppercase mb-1">Tailored Architecture</span><span class="text-3xl font-black">Enterprise</span></div>
+            <a href="#contact" style="font-family: inter;" class="px-8 py-4 bg-blue-600 rounded-2xl text-white font-bold hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all">BUILD YOUR BRAND</a>
+          </div>
+        </div>
+        <!-- Abstract Background Shape -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] group-hover:bg-blue-600/20 transition-colors"></div>
+      </div>
+
+      <!-- SERVICE 2: SQUARE CARD (Lg: 4 cols) - Real Estate -->
+      <div class="md:col-span-3 lg:col-span-4 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-indigo-500/50">
+        <div class="w-14 h-14 bg-indigo-600/10 rounded-2xl flex items-center justify-center border border-indigo-500/20 mb-8">
+           <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        </div>
+        <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Real Estate Solutions</h4>
+        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Dynamic property listing engines equipped with advanced map filters, immersive galleries, and automated agent routing pipelines.</p>
+        <div class="text-white mb-6"><span class="text-3xl font-black">Custom MLS</span></div>
+        <a href="#contact" style="font-family: inter;" class="text-indigo-400 font-bold flex items-center gap-2 group/btn">View Features <span class="group-hover/btn:translate-x-2 transition-transform">→</span></a>
+      </div>
+
+      <!-- SERVICE 3: SQUARE CARD (Lg: 4 cols) - Restaurant Ordering -->
+      <div class="md:col-span-3 lg:col-span-4 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-emerald-500/50">
+        <div class="w-14 h-14 bg-emerald-600/10 rounded-2xl flex items-center justify-center border border-emerald-500/20 mb-8">
+           <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        </div>
+        <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Restaurant Ordering</h4>
+        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Commission-free checkout dashboards built for local eateries, featuring interactive digital menus and instant payment integration.</p>
+        <div class="text-white mb-6"><span class="text-3xl font-black">Direct Sales</span></div>
+        <a href="#contact" style="font-family: inter;" class="text-emerald-400 font-bold flex items-center gap-2 group/btn">View Features <span class="group-hover/btn:translate-x-2 transition-transform">→</span></a>
+      </div>
+
+      <!-- SERVICE 4: WIDE CARD (Lg: 8 cols) - Logistics Company -->
+      <div class="md:col-span-3 lg:col-span-8 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-amber-500/50 flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-1">
+          <div class="w-14 h-14 bg-amber-600/10 rounded-2xl flex items-center justify-center border border-amber-500/20 mb-8">
+            <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V11a1 1 0 011-1h2m0 0l2 2m-2-2v4m-4.5 4h.5m.5 0h.5m-.5 0h-.5M17 11h1.5a1.5 1.5 0 011.5 1.5v2.5L17 15v-4z"></path></svg>
+          </div>
+          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Logistics & Supply Chain</h4>
+          <p class="text-slate-400 text-sm max-w-sm mb-0 leading-relaxed">Robust cargo portals integrated with instant shipping rate calculators, digital manifest forms, and automated fleet request scheduling.</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 text-center min-w-[200px]">
+            <p class="text-slate-500 text-xs uppercase mb-1">Operational Model</p>
+            <p class="text-4xl font-black text-white">Full Sync</p>
+            <a href="#contact" style="font-family: inter;" class="mt-4 block py-3 bg-amber-600 text-white rounded-xl font-bold text-sm">LAUNCH PORTAL</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-black/5 text-white py-12">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-center">
 
-    <!-- Branding -->
-    <div class="text-center md:text-left">
-      <h2 class="font-bold text-xl mb-2">Chacha Collins</h2>
-      <p class="text-white/60 text-sm">Web Designer And Developer</p>
+<!-- ABOUT SECTION -->
+ <section id="about" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+  
+  <!-- Subtle Scanline Effect (Senior Flex) -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid lg:grid-cols-12 gap-20">
+      
+      <!-- Left: Technical Narrative (7 Cols) -->
+      <div class="lg:col-span-7 space-y-12">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 font-mono text-xs text-blue-500 tracking-[0.3em] uppercase">
+            <span class="inline-block w-8 h-px bg-blue-500"></span>
+            User.Origin()
+          </div>
+          <h3 style="font-family: inter;" class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] decode-text">
+            ENGINEERING <br/> <span class="text-slate-700 italic">WITH INTENT</span>
+          </h3>
+        </div>
+
+        <div class="space-y-8 max-w-2xl">
+          <p class="text-slate-400 text-xl font-light leading-relaxed">
+            /* I bridge the gap between <span class="text-white font-medium">heavy-duty backend logic</span> and <span class="text-white font-medium">high-fidelity frontend motion</span>. My goal isn't just to ship features, but to build scalable architectures. */
+          </p>
+          
+          <div class="p-8 rounded-3xl bg-blue-600/5 border border-blue-600/10 backdrop-blur-md italic text-slate-300 border-l-4 border-l-blue-600">
+            "A senior developer doesn't just solve problems; they anticipate them. I build systems that are as maintainable as they are performant."
+          </div>
+        </div>
+
+        <!-- Performance Dashboard Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 pt-12 border-t border-white/5">
+          <div class="group">
+            <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors"> Production</p>
+            <p class="text-4xl font-black text-white tracking-tighter">Frontend</p>
+          </div>
+          <div class="group">
+            <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors"> Engine Vitals</p>
+            <p class="text-4xl font-black text-white tracking-tighter">100% <span class="text-sm font-light text-slate-500">Opt.</span></p>
+          </div>
+          <div class="group">
+            <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors"> Retention</p>
+            <p class="text-4xl font-black text-white tracking-tighter">94% <span class="text-sm font-light text-slate-500">Rate</span></p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Right: The "Module Stack" (5 Cols) -->
+      <div class="lg:col-span-5 relative module-stack-container">
+        <!-- Floating Code Fragments (Background) -->
+        <div class="absolute -top-10 -right-10 font-mono text-[10px] text-blue-500/10 select-none">
+          <pre>
+            &lt;script&gt;
+              const deploy = (env) => {
+                optimize(env);
+                scale(env);
+              }
+            &lt;/script&gt;
+          </pre>
+        </div>
+
+        <div class="relative p-8 rounded-[2.5rem] bg-[#030816] border border-white/10 shadow-2xl overflow-hidden group module-stack">
+          <!-- Animated Top Bar -->
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          
+          <h4 style="font-family: inter;" class="text-white font-black text-2xl mb-8 flex items-center justify-between">
+            Stack.env
+            <span class="text-[10px] font-mono text-slate-500 px-2 py-1 bg-white/5 rounded border border-white/10">v.2.0.26</span>
+          </h4>
+
+          <div class="space-y-6">
+            <!-- Skill Category -->
+            <div>
+              <p class="text-[10px] font-mono text-blue-500 uppercase tracking-widest mb-3">Core_Modules</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">HTML</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">CSS/TAILWIND</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">JavaScript</span>
+              </div>
+            </div>
+
+
+            <!-- Currently Compiling Section -->
+            <div class="mt-10 p-5 rounded-2xl bg-white/5 border border-dashed border-white/10">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></div>
+                <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Active_Learning</p>
+              </div>
+              <p class="text-sm text-white font-medium">React JS. / Typescript</p>
+              <div class="mt-3 w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                <div class="w-[65%] h-full bg-blue-600 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+  <section id="skills" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+  
+  <!-- Kinetic Grid (Movement on Z-Axis) -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Header: Side-Profile Layout -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-24">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-8 bg-blue-500"></div>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Tech.manifest</span>
+        </div>
+        <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none">
+          ENGINE <br/> <span class="text-slate-800 italic">CORE</span>
+        </h3>
+      </div>
+      <p class="text-slate-500 text-lg font-light lg:max-w-sm border-l border-white/10 pl-6">
+        /* A carefully curated stack focused on <span class="text-white">semantic markup</span>, <span class="text-white">atomic utility design</span>, and <span class="text-white">asynchronous logic</span>. */
+      </p>
     </div>
 
-    <!-- Quick Links -->
-    <div class="flex justify-center gap-6">
-      <a href="#about" class="hover:text-blue-400 transition">About</a>
-      <a href="#services" class="hover:text-blue-400 transition">Services</a>
-      <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    <!-- Skills: The "Control Panel" Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+      
+      <!-- Frontend: The Largest Column -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.01]">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] h-full">
+          <div class="flex justify-between items-start mb-12">
+            <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20 text-blue-500 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono text-slate-600">ID: FE_01</span>
+          </div>
+          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Interface_Construction</h4>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-blue-500/5 transition-colors group/item">
+              <span class="text-slate-300 font-mono text-sm">HTML5 Architecture</span>
+              <span class="text-[10px] text-blue-500 font-bold opacity-0 group-hover/item:opacity-100 uppercase">Semantic</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-blue-500/5 transition-colors group/item">
+              <span class="text-slate-300 font-mono text-sm">CSS3 Modern Layouts</span>
+              <span class="text-[10px] text-blue-500 font-bold opacity-0 group-hover/item:opacity-100 uppercase">Core</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-blue-500/5 transition-colors group/item">
+              <span class="text-slate-300 font-mono text-sm">Tailwind CSS</span>
+              <span class="text-[10px] text-blue-500 font-bold opacity-0 group-hover/item:opacity-100 uppercase">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-blue-500/5 transition-colors group/item">
+              <span class="text-slate-300 font-mono text-sm">JavaScript (ES6+)</span>
+              <span class="text-[10px] text-blue-500 font-bold opacity-0 group-hover/item:opacity-100 uppercase">Dynamic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infrastructure: Mid-Height -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] mt-0 md:mt-12 transition-all hover:scale-[1.01]">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] h-full">
+          <div class="flex justify-between items-start mb-12">
+            <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center border border-emerald-500/20 text-emerald-500 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-7-4h.01m-.01 8h.01"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono text-slate-600">ID: PR_02</span>
+          </div>
+          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Performance_Metrics</h4>
+          <div class="space-y-4">
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all" data-width="95%">
+              <p class="text-slate-300 font-mono text-sm mb-1">Responsive Web Design</p>
+              <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="w-[95%] h-full bg-emerald-500"></div></div>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all">
+              <p class="text-slate-300 font-mono text-sm mb-1">DOM Manipulation</p>
+              <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="w-[85%] h-full bg-emerald-500"></div></div>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all">
+              <p class="text-slate-300 font-mono text-sm mb-1">Cross-Browser Optimization</p>
+              <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="w-[90%] h-full bg-emerald-500"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools: Short Height -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.01]">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] h-full">
+          <div class="flex justify-between items-start mb-12">
+            <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center border border-purple-500/20 text-purple-500 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono text-slate-600">ID: TL_03</span>
+          </div>
+          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Auxiliary_Tools</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">Figma</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">Git</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">GitHub</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">VS_Code</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS SECTION --> <section id="guarantees" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+  
+  <!-- Kinetic Aura Background -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-blue-600/10 to-transparent blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Asymmetric Header -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-32">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-[1px] w-12 bg-blue-500"></div>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Commitment.log</span>
+        </div>
+        <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
+          DEVELOPMENT <br/> <span class="text-slate-800 italic">STANDARDS</span>
+        </h3>
+      </div>
+      <p class="text-slate-500 text-lg font-light lg:max-w-sm border-l border-white/10 pl-6">
+        /* Rigid engineering rules applied to every codebase to ensure <span class="text-white">technical excellence</span> and <span class="text-white">zero-compromise speed</span>. */
+      </p>
     </div>
 
-    <!-- Social Links -->
-    <div class="flex justify-center md:justify-end gap-4">
-      <a href="https://github.com/chachas-ethics" target="_blank" class="hover:text-blue-400 transition">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.583 0-.287-.01-1.045-.015-2.05-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.755-1.333-1.755-1.09-.744.082-.729.082-.729 1.205.085 1.84 1.238 1.84 1.238 1.07 1.833 2.807 1.304 3.492.997.108-.775.418-1.304.762-1.603-2.665-.3-5.466-1.332-5.466-5.931 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.403c1.02.004 2.045.138 3.003.403 2.288-1.552 3.294-1.23 3.294-1.23.656 1.653.244 2.873.12 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.805 5.628-5.475 5.922.43.372.814 1.102.814 2.222 0 1.604-.014 2.896-.014 3.287 0 .323.19.7.8.581C20.565 21.796 24 17.297 24 12c0-6.63-5.373-12-12-12z"/>
-        </svg>
-      </a>
+    <!-- Staggered Testimonial Masonry -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
 
-      <a href="https://linkedin.com/in/chacha-collins-952709363" target="_blank" class="hover:text-blue-400 transition">
-  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341.5c-29.64 0-53.64-24-53.64-53.64s24-53.64 53.64-53.64 53.64 24 53.64 53.64-24 53.64-53.64 53.64zM447.9 448h-92.68V302.4c0-34.7-12.45-58.4-43.56-58.4-23.77 0-37.95 16-44.25 31.4-2.28 5.55-2.85 13.33-2.85 21.15V448h-92.78s1.24-241.1 0-266.1h92.78v37.7c12.3-19 34.3-46 83.44-46 60.88 0 106.56 39.7 106.56 125V448z"/>
-  </svg>
-</a>
+      <!-- COMMITMENT 1 (Featured High) - Performance Promise -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.02] duration-500">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] relative overflow-hidden h-full">
+          <!-- Glass Accent Icon -->
+          <div class="absolute -top-6 -right-4 text-9xl font-serif text-blue-500/5 group-hover:text-blue-500/10 transition-colors">&lt;&gt;</div>
+          
+          <div class="flex gap-1 mb-8">
+            <span class="text-blue-500 font-mono text-lg">⚡</span>
+            <span class="ml-2 text-[10px] font-mono text-slate-600 self-center uppercase tracking-widest">Performance_Metric</span>
+          </div>
 
-<a href="https://instagram.com/yourusername" target="_blank" class="hover:text-blue-400 transition">
-  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-    <path d="M224.1 141c-63.6 0-115 51.4-115 115s51.4 115 115 115 115-51.4 115-115-51.4-115-115-115zm0 190c-41.6 0-75-33.4-75-75s33.4-75 75-75 75 33.4 75 75-33.4 75-75 75zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.2-93.5-26.3-26.3-57.9-34.5-93.5-36.2-36.9-2.1-147.8-2.1-184.6 0-35.7 1.7-67.3 9.9-93.5 36.2-26.3 26.3-34.5 57.9-36.2 93.5-2.1 36.9-2.1 147.8 0 184.6 1.7 35.7 9.9 67.3 36.2 93.5 26.3 26.3 57.9 34.5 93.5 36.2 36.9 2.1 147.8 2.1 184.6 0 35.7-1.7 67.3-9.9 93.5-36.2 26.3-26.3 34.5-57.9 36.2-93.5 2.1-36.9 2.1-147.7 0-184.6zm-48.1 232c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.3 9-132.8 9s-103.4 2.6-132.8-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.3-9-132.8s-2.6-103.4 9-132.8c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.3-9 132.8-9s103.4-2.6 132.8 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.3 9 132.8s2.7 103.4-9 132.8z"/>
-  </svg>
-</a>
-</a>
+          <p class="text-slate-300 text-xl font-light leading-relaxed mb-12 relative z-10">
+            Every application is engineered to achieve a <span class="text-white font-medium">95+ Lighthouse score</span>. Fast load speeds directly prevent bounce rates and maximize your <span class="text-blue-400">conversion flow</span>.
+          </p>
+          
+          <div class="flex items-center gap-5 pt-8 border-t border-white/5">
+            <div class="relative">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 p-[1px]">
+                    <div class="w-full h-full rounded-[calc(1rem-1px)] bg-slate-950 flex items-center justify-center text-blue-400 font-black">95+</div>
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full"></div>
+            </div>
+            <div>
+              <p class="text-white font-black text-sm uppercase tracking-wider">Speed Guarantee</p>
+              <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest">Core Web Vitals Optimized</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<a href="mailto:chachacollins8@gmail.com" target="_blank" class="hover:text-blue-400 transition">
-  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-    <path d="M400 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.59L224 288 48 152.59V112h352zm0 304H48c-8.84 0-16-7.16-16-16V175.41l182.39 135.12c6.08 4.49 14.53 4.49 20.61 0L416 175.41V400c0 8.84-7.16 16-16 16z"/>
-  </svg>
-</a>
+      <!-- COMMITMENT 2 (Staggered Down) - Clean Architecture -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.02] duration-500 lg:mt-20">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] relative overflow-hidden">
+          <div class="absolute -top-6 -right-4 text-9xl font-serif text-indigo-500/5 group-hover:text-indigo-500/10 transition-colors">&#123;&#125;</div>
+          
+          <div class="flex gap-1 mb-8">
+            <span class="text-indigo-500 font-mono text-lg">⚙️</span>
+            <span class="ml-2 text-[10px] font-mono text-slate-600 self-center uppercase tracking-widest">Maintainability</span>
+          </div>
+
+          <p class="text-slate-300 text-xl font-light leading-relaxed mb-12 relative z-10">
+            No messy configurations. I supply <span class="text-white font-medium">clean, modular components</span> built with semantic code. Your internal development team can scale the architecture without friction.
+          </p>
+          
+          <div class="flex items-center gap-5 pt-8 border-t border-white/5">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 p-[1px]">
+                <div class="w-full h-full rounded-[calc(1rem-1px)] bg-slate-950 flex items-center justify-center text-indigo-400 font-black">DRY</div>
+            </div>
+            <div>
+              <p class="text-white font-black text-sm uppercase tracking-wider">Scalable Codebases</p>
+              <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest">Zero Spaghetti Architecture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMITMENT 3 (Staggered Mid) - Collaboration Request -->
+      <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.02] duration-500 lg:mt-10">
+        <div class="bg-[#030816] p-10 rounded-[2.4rem] relative overflow-hidden">
+          <div class="absolute -top-6 -right-4 text-9xl font-serif text-emerald-500/5 group-hover:text-emerald-500/10 transition-colors">🚀</div>
+          
+          <div class="flex gap-1 mb-8">
+            <span class="text-emerald-500 font-mono text-lg">✦</span>
+            <span class="ml-2 text-[10px] font-mono text-slate-600 self-center uppercase tracking-widest">Inbound_Pipeline</span>
+          </div>
+
+          <p class="text-slate-300 text-xl font-light leading-relaxed mb-12 relative z-10">
+            Ready to secure your spot? Your unique business requirements will be transformed into an <span class="text-emerald-400">optimized asset</span> that sets a new industry benchmark.
+          </p>
+          
+          <div class="flex items-center gap-5 pt-8 border-t border-white/5">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-cyan-600 p-[1px]">
+                <div class="w-full h-full rounded-[calc(1rem-1px)] bg-slate-950 flex items-center justify-center text-emerald-400 font-black">NEXT</div>
+            </div>
+            <div>
+              <p class="text-white font-black text-sm uppercase tracking-wider">Your Project Here</p>
+              <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest">Let's Deploy Excellence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
-
-
-
- </div>
-
+<!-- CTA SECTION -->
+ <section id="cta" class="relative py-40 px-6 bg-[#020617] overflow-hidden">
+  
+  <!-- High-End Background: Kinetic "Warp" Effect -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,_#2563eb10_0%,_transparent_70%)] animate-[pulse_8s_ease-in-out_infinite]"></div>
+    <!-- Digital "Grid" that disappears into the horizon -->
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px); background-size: 60px 60px; transform: perspective(1000px) rotateX(60deg) translateY(-200px);"></div>
   </div>
 
-  <div class="text-center text-white/50 text-sm mt-8">
-    © 2025. All rights reserved.
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Left Column: The Narrative -->
+      <div class="lg:col-span-7 space-y-10">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-px bg-blue-500"></span>
+            <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Deployment_Ready</span>
+          </div>
+          <h2 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
+            IGNITE YOUR <br/> <span class="text-slate-800 cta_shimmer italic">LEGACY</span>
+          </h2>
+        </div>
+
+        <p class="text-slate-400 text-xl md:text-2xl font-light leading-relaxed max-w-xl">
+          Currently synchronized for <span class="text-white font-medium">Q2 2026</span>. Let's engineer a solution that scales as fast as your ambition.
+        </p>
+
+        <!-- Live Metadata Bar (Senior Detail) -->
+        <div class="flex flex-wrap gap-10 py-10 border-y border-white/5">
+          <div class="space-y-1">
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Protocol</p>
+            <p class="text-white font-bold tracking-tight">Full-Stack Architecture</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Velocity</p>
+            <p class="text-white font-bold tracking-tight">14-21 Day Sprint</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Availability</p>
+            <div class="flex items-center gap-2">
+              <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+              <p class="text-white font-bold tracking-tight">02 Spots Left</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: The "Launch" Terminal -->
+      <div class="lg:col-span-5">
+        <div class="group relative p-1 bg-gradient-to-br from-blue-500/20 via-white/5 to-purple-500/20 rounded-[3rem] transition-all hover:scale-[1.02]">
+          <div class="bg-[#030816] p-12 rounded-[2.9rem] border border-white/5 relative overflow-hidden text-center cta_terminal_surface">
+            
+            <!-- Abstract background shape -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-600/10 rounded-full blur-[60px] group-hover:bg-blue-600/20 transition-colors"></div>
+
+            <div class="relative z-10 space-y-8">
+              <div class="w-20 h-20 bg-blue-600/10 border border-blue-500/20 rounded-3xl mx-auto flex items-center justify-center text-blue-500 group-hover:rotate-[360deg] transition-transform duration-1000">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              
+              <div class="space-y-2">
+                <h4 style="font-family: inter;" class="text-white text-2xl font-black uppercase tracking-tighter">Initiate Sequence</h4>
+                <p class="text-slate-500 text-sm font-mono">auth_key: required</p>
+              </div>
+
+              <a href="#contact" style="font-family: inter;" class="flex items-center justify-center gap-3 w-full py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-500 hover:shadow-[0_0_50px_rgba(37,99,235,0.4)] transition-all active:scale-95 group/btn">
+                START PROJECT
+                <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+              
+              <p class="text-[10px] text-slate-600 uppercase tracking-widest">Secure_Handshake_Enabled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+ <section id="contact" class="py-40 px-6 bg-[#020617] relative overflow-hidden">
+  
+  <!-- Digital "Grid" Background with Depth -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://vercel.app')]"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_#2563eb05_0%,_transparent_70%)]"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Asymmetric Header -->
+    <div class="grid lg:grid-cols-12 gap-10 mb-24 items-end">
+      <div class="lg:col-span-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-12 bg-blue-500"></div>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Connect.exe</span>
+        </div>
+        <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
+          INITIATE <br/> <span class="text-slate-800 italic">PHASE ONE</span>
+        </h3>
+      </div>
+      <div class="lg:col-span-4 lg:text-right">
+        <p class="text-slate-500 text-sm font-mono uppercase tracking-widest mb-2">// Current_Status</p>
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
+            <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest">Slots_Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-20">
+
+      <!-- Left Side: Communication Nodes (5 Cols) -->
+      <div class="lg:col-span-5 space-y-8">
+        
+        <div class="space-y-4">
+            <p class="text-slate-400 text-xl font-light leading-relaxed">
+              Ready to deploy your vision? Choose a communication node below to sync schedules.
+            </p>
+        </div>
+
+        <!-- Glass Node Cards -->
+        <div class="space-y-4">
+            <a href="mailto:yourname@email.com" class="group flex items-center justify-between p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:border-blue-500/30 transition-all duration-500 hover:-translate-y-1">
+                <div class="flex items-center gap-5">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="text-white font-bold tracking-tight">Email</span>
+                </div>
+                <span class="text-slate-600 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">01</span>
+            </a>
+
+            <a href="https://wa.me" class="group flex items-center justify-between p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-1">
+                <div class="flex items-center gap-5">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </div>
+                    <span class="text-white font-bold tracking-tight">WhatsApp</span>
+                </div>
+                <span class="text-slate-600 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">02</span>
+            </a>
+        </div>
+
+        <div class="flex gap-4 pt-10 border-t border-white/5">
+          <a href="#" class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400 hover:text-white hover:border-blue-500 transition-all tracking-widest">GITHUB</a>
+          <a href="#" class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400 hover:text-white hover:border-blue-500 transition-all tracking-widest">LINKEDIN</a>
+        </div>
+      </div>
+
+      <!-- Right Side: Interaction Terminal (7 Cols) -->
+      <div class="lg:col-span-7">
+        <div class="relative p-1 bg-gradient-to-br from-blue-500/20 to-transparent rounded-[3rem]">
+          <form class="bg-[#030816] p-10 md:p-14 rounded-[2.9rem] relative overflow-hidden group">
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div class="space-y-3">
+                <label class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.3em] ml-1">Identity</label>
+                <input type="text" placeholder="CHACHA COLLINS" class="w-full bg-white/[0.03] border border-white/10 rounded-2xl p-5 text-white placeholder:text-slate-700 outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all font-mono text-sm">
+              </div>
+              <div class="space-y-3">
+                <label class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.3em] ml-1">Source</label>
+                <input type="email" placeholder="EMAIL ADDRESS" class="w-full bg-white/[0.03] border border-white/10 rounded-2xl p-5 text-white placeholder:text-slate-700 outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all font-mono text-sm">
+              </div>
+            </div>
+
+            <div class="space-y-3 mb-10">
+              <label class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.3em] ml-1">SCOPE DESCRIPTION</label>
+              <textarea rows="6" placeholder="DESCRIBE PROJECT REQUIREMENTS..." class="w-full bg-white/[0.03] border border-white/10 rounded-2xl p-5 text-white placeholder:text-slate-700 outline-none focus:border-blue-500/50 focus:bg-blue-500/5 transition-all font-mono text-sm resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="group relative w-full py-6 bg-blue-600 text-white font-black rounded-2xl overflow-hidden transition-all hover:shadow-[0_0_50px_rgba(37,99,235,0.4)] hover:-translate-y-1">
+              <span style="font-family: inter;" class="relative z-10 flex items-center justify-center gap-3">
+                EXECUTE MESSAGE
+                <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+              <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </button>
+            
+            <div class="mt-8 flex justify-center">
+                <p class="text-[10px] font-mono text-slate-700 uppercase tracking-[0.4em]">Handshake Protocol v4.0 Active</p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+  <footer class="relative pt-28 pb-12 bg-[#020617] border-t border-white/5 overflow-hidden">
+  
+  <!-- Ambient Backlight Glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-gradient-to-t from-blue-600/10 via-indigo-500/5 to-transparent blur-[80px] pointer-events-none z-0"></div>
+
+  <!-- Silhouette Landscape Layers with Dynamic Gradient Masks -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-[0.04] z-0 mix-blend-screen">
+    <svg class="relative block w-full h-[160px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="backRidgeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <path d="M0,32V120H1200V15C1110,35,1015,10,910,42C812,71,720,18,610,38C490,60,395,25,290,55C185,85,90,12,0,32Z" fill="url(#backRidgeGrad)"></path>
+    </svg>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-[0.08] z-0 mix-blend-initial">
+    <svg class="relative block w-full h-[110px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="frontRidgeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1d4ed8" />
+          <stop offset="100%" stop-color="#020617" />
+        </linearGradient>
+      </defs>
+      <path d="M0,65V120H1200V80C1130,55,1045,95,960,70C860,40,795,85,690,50C590,15,510,75,410,45C310,15,225,90,140,60C85,40,40,75,0,65Z" fill="url(#frontRidgeGrad)"></path>
+    </svg>
+  </div>
+  
+  <!-- Technical Grid overlay for tactile texture -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.015] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    
+    <!-- Row 1: Main Structure -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-20 border-b border-white/5">
+      
+      
+      <div class="md:col-span-4 space-y-6">
+        <a href="#" class="group inline-flex items-center gap-4">
+          <div class="relative w-11 h-11 bg-blue-500 border border-white/10 rounded-xl flex items-center justify-center overflow-hidden shadow-lg shadow-black/50 group-hover:border-blue-500/40 transition-colors duration-500">
+            <span class="relative z-10 text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-400 font-black text-xl italic">&lt;/></span>
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black text-white tracking-tighter uppercase leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Chacha Collins</span>
+            <span class="text-[9px] font-mono text-blue-400/80 uppercase tracking-[0.4em] mt-1.5">Frontend Developer</span>
+          </div>
+        </a>
+        <p class="text-slate-400 text-xs leading-relaxed font-light tracking-wide max-w-xs">
+          Building fast, accessible web applications for real estate, logistics, and company brands. Let's build your software blueprint.
+        </p>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Available For Contracts</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation Index (3/12 Cols) -->
+      <div class="md:col-span-3 space-y-5">
+        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Navigation</h4>
+        <ul class="space-y-3">
+          <li><a href="#work" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Projects</a></li>
+          <li><a href="#about" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>About Me</a></li>
+          <li><a href="#services" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Services</a></li>
+          <li><a href="#contact" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Get In Touch</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Focus Specialties (3/12 Cols) -->
+      <div class="md:col-span-3 space-y-5">
+        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Focus Areas</h4>
+        <ul class="space-y-2 text-xs font-medium text-slate-400 cursor-default">
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">01/</span> Custom E-Commerce</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">02/</span> Real Estate Listing Engines</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">03/</span> Logistics Operations Dashboards</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">04/</span> Responsive Corporate Sites</li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact & Top Actions (2/12 Cols) -->
+      <div class="md:col-span-2 flex flex-col justify-between items-start md:items-end gap-6 md:gap-0">
+        <div class="space-y-4 w-full md:text-right">
+          <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Connect</h4>
+          <div class="flex md:justify-end gap-4">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-xs font-medium transition-colors">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-xs font-medium transition-colors">LinkedIn</a>
+          </div>
+        </div>
+        <a href="#" class="group w-12 h-12 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-blue-500/40 hover:bg-blue-600/10 shadow-lg transition-all duration-300">
+           <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-400 group-hover:-translate-y-0.5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Legal, Compliance, and Live Systems Metadata -->
+    <div class="mt-10 flex flex-col sm:flex-row justify-between items-center gap-6 text-slate-500">
+      <div class="flex flex-wrap gap-x-8 gap-y-2 items-center justify-center sm:justify-start">
+        <p class="text-[9px] font-mono uppercase tracking-widest text-slate-600">© 2026 <span class="text-slate-400">YOUR_NAME</span></p>
+        <a href="#privacy" class="text-[9px] font-mono uppercase tracking-widest text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
+        <a href="#terms" class="text-[9px] font-mono uppercase tracking-widest text-slate-600 hover:text-slate-400 transition-colors">Terms of Service</a>
+      </div>
+      <div class="flex items-center gap-5 text-[9px] font-mono uppercase tracking-widest text-slate-600">
+          <span class="hidden md:inline">Environment: <span class="text-slate-500">Production</span></span>
+          <div class="hidden md:block h-2.5 w-px bg-white/10"></div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+            <span class="text-slate-400">All Systems Operational</span>
+          </div>
+      </div>
+    </div>
+
   </div>
 </footer>
 
 
+
 <script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
+    const line1 = document.getElementById('line-1');
+    const line2 = document.getElementById('line-2');
+    const line3 = document.getElementById('line-3');
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-
-  const form = document.getElementById("contact-form");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    const whatsappMessage = 
-      `Hello Chacha,%0A%0A` +
-      `Name: ${name}%0A` +
-      `Email: ${email}%0A` +
-      `Message:%0A${message}`;
-
-    const phoneNumber = "255788296274"; // your WhatsApp number (no +)
-
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
-    window.open(whatsappURL, "_blank");
-  });
-
-  const track = document.getElementById("testimonial-track");
-  const prev = document.getElementById("prev");
-  const next = document.getElementById("next");
-
-  let index = 0;
-  const total = track.children.length;
-
-  function updateSlide() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  next.addEventListener("click", () => {
-    index = (index + 1) % total;
-    updateSlide();
-  });
-
-  prev.addEventListener("click", () => {
-    index = (index - 1 + total) % total;
-    updateSlide();
-  });
-
-  // Auto-slide every 5 seconds
-  setInterval(() => {
-    index = (index + 1) % total;
-    updateSlide();
-  }, 5000);
-
-  const reveals = document.querySelectorAll(".reveal");
-
-  const revealOnScroll = () => {
-    reveals.forEach(el => {
-      const windowHeight = window.innerHeight;
-      const elementTop = el.getBoundingClientRect().top;
-      const revealPoint = 100;
-
-      if (elementTop < windowHeight - revealPoint) {
-        el.classList.add("active");
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.contains('max-h-[400px]');
+      
+      if (!isOpen) {
+        // Open actions
+        mobileMenu.classList.remove('max-h-0', 'opacity-0', 'border-transparent');
+        mobileMenu.classList.add('max-h-[400px]', 'opacity-100', 'border-white/5');
+        
+        // Morph into X
+        line1.classList.remove('translate-y-[-4px]');
+        line1.classList.add('rotate-45', 'translate-y-[2px]');
+        line2.classList.add('opacity-0', 'scale-0');
+        line3.classList.remove('translate-y-[4px]');
+        line3.classList.add('-rotate-45', '-translate-y-[2px]');
+      } else {
+        // Close actions
+        mobileMenu.classList.remove('max-h-[400px]', 'opacity-100', 'border-white/5');
+        mobileMenu.classList.add('max-h-0', 'opacity-0', 'border-transparent');
+        
+        // Reset to hamburger
+        line1.classList.remove('rotate-44', 'rotate-45', 'translate-y-[2px]');
+        line1.classList.add('translate-y-[-4px]');
+        line2.classList.remove('opacity-0', 'scale-0');
+        line3.classList.remove('-rotate-44', '-rotate-45', '-translate-y-[2px]');
+        line3.classList.add('translate-y-[4px]');
       }
+    }
+
+    toggleBtn.addEventListener('click', toggleMenu);
+
+    // Auto-close menu when inside links are clicked
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('max-h-[400px]')) {
+          toggleMenu();
+        }
+      });
     });
-  };
+  })
+   // Senior Flex: Real-time clock in the footer
+  function updateTime() {
+    const now = new Date();
+    document.getElementById('footer-time').innerText = now.toLocaleTimeString('en-US', { hour12: false }) + " GMT";
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
 
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-
-   const toggleBtn = document.getElementById("theme-toggle");
-  const root = document.documentElement;
-
+  
+/* ios hover */
+ document.addEventListener("touchstart", function() {}, true);
   
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Chacha Collins",
-  "url": "https://yourportfolio.com",
-  "sameAs": [
-    "https://github.com/chachas-ethics",
-    "https://linkedin.com/in/yourusername",
-    "https://twitter.com/yourusername"
-  ],
-  "jobTitle": "Frontend Developer"
-}
-</script>
 
-
+    <script src="script.js"></script>
 </body>
 </html>
