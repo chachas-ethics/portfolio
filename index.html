@@ -25,7 +25,7 @@
 <body class="bg-primary text-white">
 
   <!-- Navbar Wrapper: Glassmorphism + Sticky -->
-   <!-- Floating Dynamic Island Navbar --><nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-5xl">
+   <!-- Floating Dynamic Island Navbar --><nav style="font-family: inter;" class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-5xl">
   <div class="relative group">
     <!-- The "Bioluminescent" Glow -->
     <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 rounded-[2rem] blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
@@ -40,24 +40,28 @@
              <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
              <span class="absolute inset-0 flex items-center justify-center font-black text-white italic"> &lt;/> </span>
           </div>
-          <span class="text-xl font-bold tracking-tighter text-white opacity-80 group-hover/logo:opacity-100 transition-opacity">
+          <span class="text-l font-bold tracking-tighter text-white opacity-80 group-hover/logo:opacity-100 transition-opacity">
             CHACHA<span class="text-blue-400">COLLINS</span>
           </span>
         </a>
 
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center gap-1">
-          <a href="#work" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">Projects</a>
-          <a href="#about" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">About Me</a>
-          <a href="#services" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-full transition-all">Services</a>
+          <a href="#work" class="px-5 py-2 text-sm font-semibold text-slate-300 uppercase hover:text-white hover:bg-white/5 rounded-full transition-all">Portfolio</a>
+          <a href="#about" class="px-5 py-2 text-sm font-semibold text-slate-300 uppercase hover:text-white hover:bg-white/5 rounded-full transition-all">About Me</a>
+          <a href="#services" class="px-5 py-2 text-sm font-semibold text-slate-300 uppercase hover:text-white hover:bg-white/5 rounded-full transition-all">Services</a>
         </div>
 
         <!-- Desktop CTA Button & Mobile Hamburger Controls -->
         <div class="flex items-center gap-4">
-          <a href="#hire" class="hidden sm:inline-block relative group/btn overflow-hidden px-8 py-2.5 rounded-full bg-blue-600 text-white font-bold text-sm shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-blue-500/50 transition-all active:scale-95">
-            <span class="relative z-10">INITIATE PROJECT</span>
-            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
-          </a>
+         <a 
+  href="https://wa.me/255788296274?text=Hi%20Chacha%2C%20I%20would%20love%20to%20work%20on%20a%20project%20with%20you." 
+  target="_blank"
+  class="hidden sm:inline-block relative group/btn overflow-hidden px-8 py-2.5 rounded-full bg-blue-600 text-white font-bold text-sm shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-blue-500/50 transition-all active:scale-95"
+>
+  <span class="relative z-10">INITIATE PROJECT</span>
+  <div class="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+</a>
 
           <!-- Mobile Toggle Button (Transforms to X) -->
           <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/5 relative z-50 group/toggle">
@@ -71,11 +75,16 @@
       <!-- Mobile Dropdown Menu Drawer -->
       <div id="mobile-menu" class="max-h-0 opacity-0 transition-all duration-300 ease-in-out md:hidden border-t border-transparent px-8">
         <div class="flex flex-col gap-2 py-6">
-          <a href="#work" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Projects</a>
-          <a href="#about" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">About Me</a>
-          <a href="#services" class="menu-link px-4 py-3 text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Services</a>
-          <a href="#hire" class="menu-link sm:hidden mt-2 text-center px-4 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all">INITIATE PROJECT</a>
-        </div>
+          <a href="#portfolio" class="menu-link px-4 py-3 text-base font-semibold uppercase text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Portfolio</a>
+          <a href="#about" class="menu-link px-4 py-3 text-base font-semibold uppercase text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">About Me</a>
+          <a href="#services" class="menu-link px-4 py-3 text-base font-semibold uppercase text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">Services</a>
+         <a 
+  href="https://wa.me/255788296274?text=Hi%20Chacha%2C%20I%20would%20love%20to%20work%20on%20a%20project%20with%20you." 
+  target="_blank"
+  class="menu-link sm:hidden mt-2 text-center px-4 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all"
+>
+  INITIATE PROJECT
+</a> </div>
       </div>
 
     </div>
@@ -121,10 +130,15 @@
         </p>
 
         <div class="flex flex-wrap gap-6">
-          <a href="#work" style="font-family: inter;" class="relative px-10 py-5 bg-blue-600 text-white font-black rounded-2xl group overflow-hidden transition-all hover:shadow-[0_0_50px_rgba(37,99,235,0.4)]">
-            <span class="relative z-10">INITIATE PROJECT</span>
-            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-          </a>
+         <a 
+  href="https://wa.me/255788296274?text=Hi%20Chacha%2C%20I%20would%20love%20to%20work%20on%20a%20project%20with%20you." 
+  target="_blank"
+  style="font-family: inter;"
+  class="relative px-10 py-5 bg-blue-600 text-white font-black rounded-2xl group overflow-hidden transition-all hover:shadow-[0_0_50px_rgba(37,99,235,0.4)]"
+>
+  <span class="relative z-10">INITIATE PROJECT</span>
+  <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</a>
           <a href="#contact" style="font-family: inter;" class="px-10 py-5 bg-white/5 border border-white/10 text-white font-black rounded-2xl backdrop-blur-xl hover:bg-white/10 transition-all">
             GET IN TOUCH
           </a>
@@ -161,7 +175,7 @@
 </section>
 
 <!-- PROJECTS SECTION -->
- <section id="projects" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+ <section id="portfolio" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
   
   <!-- High-Fidelity Background Noise & Glows -->
   <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://vercel.app')]"></div>
@@ -235,7 +249,7 @@
   
   <!-- Added 'project-text' here for the sliding motion -->
   <div class="lg:col-span-5 order-2 lg:order-1 space-y-6 project-text">
-    <h4 class="text-indigo-400 font-mono text-sm tracking-widest uppercase">02. CLEARING AND FORWARDING</h4>
+    <h4 class="text-blue-400 font-mono text-sm tracking-widest uppercase">02. CLEARING AND FORWARDING</h4>
     <h5 style="font-family: inter;" class="text-4xl md:text-5xl font-bold text-white tracking-tight">Velocity Freight</h5>
     <p class="text-slate-400 text-lg leading-relaxed">Redefining customs clearance and freight forwarding. Focused on <span class="text-white">automated supply chains</span> and real-time cargo visibility.</p>
     <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
@@ -267,7 +281,6 @@
 </div>
 
 
-     <!-- PROJECT 1: REAL ESTATE (Left Image) -->
     <div class="group grid lg:grid-cols-12 gap-12 items-center project-item">
       <div class="lg:col-span-7 relative browser-frame">
         <!-- The "Browser UI" Frame -->
@@ -339,65 +352,252 @@
     <!-- Services Bento Grid -->
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
 
-      <!-- SERVICE 1: BIG CARD (Lg: 8 cols) - Corporate Company Websites -->
-      <div class="md:col-span-3 lg:col-span-8 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-blue-500/50">
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center border border-blue-500/20 mb-8 group-hover:rotate-12 transition-transform duration-500">
-             <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-          </div>
-          <h4 style="font-family: inter;" class="text-3xl font-bold text-white mb-4">Corporate & Company Websites</h4>
-          <p class="text-slate-400 text-lg mb-8 max-w-md">High-end digital headquarters crafted to anchor your brand identity, establish industry authority, and capture high-value inbound B2B leads.</p>
-          <div class="flex flex-wrap gap-3 mb-10">
-            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Brand Identity</span>
-            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Lead Generation</span>
-            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">SEO Optimized</span>
-          </div>
-          <div class="mt-auto flex items-end justify-between">
-            <div class="text-white"><span class="text-slate-500 text-xs block uppercase mb-1">Tailored Architecture</span><span class="text-3xl font-black">Enterprise</span></div>
-            <a href="#contact" style="font-family: inter;" class="px-8 py-4 bg-blue-600 rounded-2xl text-white font-bold hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all">BUILD YOUR BRAND</a>
+     <!-- SERVICE 1: BIG CARD (Lg: 8 cols) - Corporate Company Websites -->
+<div class="md:col-span-3 lg:col-span-8 group relative bento-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-blue-500/50 flex flex-col min-h-[500px]">
+  
+  <!-- Content Wrapper -->
+  <div class="relative z-10 flex flex-col h-full">
+    
+    <!-- Icon Container -->
+    <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center border border-blue-500/20 mb-6 md:mb-8 group-hover:rotate-12 transition-transform duration-500">
+       <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+       </svg>
+    </div>
+
+    <!-- Textual Content -->
+    <h4 style="font-family: inter;" class="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+      Corporate & Company Websites
+    </h4>
+    <p class="text-slate-400 text-base md:text-lg mb-8 max-w-xl leading-relaxed">
+      High-end digital headquarters crafted to anchor your brand identity, establish industry authority, and capture high-value inbound B2B leads.
+    </p>
+
+    <!-- Tags: Responsive wrapping -->
+    <div class="flex flex-wrap gap-2 md:gap-3 mb-10">
+      <span class="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs text-slate-300 font-mono">Brand Identity</span>
+      <span class="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs text-slate-300 font-mono">Lead Generation</span>
+      <span class="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs text-slate-300 font-mono">SEO Optimized</span>
+    </div>
+
+    <!-- Responsive Footer Section -->
+    <div class="mt-auto pt-8 border-t border-white/5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        
+        <!-- Pricing/Tier Label -->
+        <div class="space-y-1">
+          <span class="text-slate-500 text-[10px] block uppercase tracking-[0.2em] font-mono">
+            Tailored Architecture
+          </span>
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase italic">
+              Enterprise
+            </span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse mb-1"></span>
           </div>
         </div>
-        <!-- Abstract Background Shape -->
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] group-hover:bg-blue-600/20 transition-colors"></div>
+
+        <!-- Action Button: Full width on mobile -->
+        <div class="w-full sm:w-auto">
+          <a href="#contact" 
+             style="font-family: inter;" 
+             class="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-blue-600 rounded-2xl text-white text-xs uppercase font-black tracking-widest overflow-hidden transition-all hover:shadow-[0_0-40px_rgba(37,99,235,0.4)] active:scale-95">
+            <span class="relative z-10">Initiate Build</span>
+            <svg class="relative z-10 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Background Shape -->
+  <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/5 rounded-full blur-[100px] group-hover:bg-blue-600/15 transition-colors pointer-events-none"></div>
+</div>
+
+
+     <!-- SERVICE 2: SQUARE CARD (Lg: 4 cols) - Real Estate -->
+<div class="md:col-span-3 lg:col-span-4 group relative bento-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-indigo-500/50 flex flex-col min-h-[500px]">
+  
+  <!-- Content Wrapper -->
+  <div class="relative z-10 flex flex-col h-full">
+    
+    <!-- Icon Container -->
+    <div class="w-14 h-14 bg-indigo-600/10 rounded-2xl flex items-center justify-center border border-indigo-500/20 mb-6 md:mb-8 group-hover:rotate-12 transition-transform duration-500">
+       <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+       </svg>
+    </div>
+
+    <!-- Textual Content -->
+    <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4 tracking-tight">
+      Real Estate Solutions
+    </h4>
+    <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed">
+      Dynamic property listing engines equipped with advanced map filters, immersive galleries, and automated agent routing pipelines.
+    </p>
+
+    <!-- Responsive Footer Section -->
+    <div class="mt-auto pt-8 border-t border-white/5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        
+        <!-- Feature Label -->
+        <div class="space-y-1">
+          <span class="text-slate-500 text-[10px] block uppercase tracking-[0.2em] font-mono">
+            System Core
+          </span>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl md:text-3xl font-black text-white tracking-tighter uppercase italic">
+              Custom MLS
+            </span>
+          </div>
+        </div>
+
+        <!-- Action Button: Full width on mobile -->
+        <div class="w-full sm:w-auto">
+          <a href="#contact" 
+             style="font-family: inter;" 
+             class="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-6 py-4 bg-indigo-600 rounded-2xl text-white text-xs uppercase font-black tracking-widest overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(79,70,229,0.4)] active:scale-95">
+            <span class="relative z-10">View Features</span>
+            <svg class="relative z-10 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Background Shape -->
+  <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-600/5 rounded-full blur-[80px] group-hover:bg-indigo-600/15 transition-colors pointer-events-none"></div>
+</div>
+
+
+     <!-- SERVICE 3: SQUARE CARD (Lg: 4 cols) - Restaurant Ordering -->
+<div class="md:col-span-3 lg:col-span-4 group relative bento-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-emerald-500/50 flex flex-col min-h-[500px]">
+  
+  <!-- Content Wrapper -->
+  <div class="relative z-10 flex flex-col h-full">
+    
+    <!-- Icon Container -->
+    <div class="w-14 h-14 bg-emerald-600/10 rounded-2xl flex items-center justify-center border border-emerald-500/20 mb-6 md:mb-8 group-hover:rotate-12 transition-transform duration-500">
+       <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+       </svg>
+    </div>
+
+    <!-- Textual Content -->
+    <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4 tracking-tight">
+      Restaurant Ordering
+    </h4>
+    <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed">
+      Commission-free checkout dashboards built for local eateries, featuring interactive digital menus and instant payment integration.
+    </p>
+
+    <!-- Responsive Footer Section -->
+    <div class="mt-auto pt-8 border-t border-white/5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        
+        <!-- Revenue Label -->
+        <div class="space-y-1">
+          <span class="text-slate-500 text-[10px] block uppercase tracking-[0.2em] font-mono">
+            Revenue Model
+          </span>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl md:text-3xl font-black text-white tracking-tighter uppercase italic">
+              Direct Sales
+            </span>
+          </div>
+        </div>
+
+        <!-- Action Button: Full width on mobile -->
+        <div class="w-full sm:w-auto">
+          <a href="#contact" 
+             style="font-family: inter;" 
+             class="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-6 py-4 bg-emerald-600 rounded-2xl text-white text-xs uppercase font-black tracking-widest overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] active:scale-95">
+            <span class="relative z-10">View Features</span>
+            <svg class="relative z-10 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Background Shape -->
+  <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-600/5 rounded-full blur-[80px] group-hover:bg-emerald-600/15 transition-colors pointer-events-none"></div>
+</div>
+
+
+     <!-- SERVICE 4: WIDE CARD (Lg: 8 cols) - Logistics Company -->
+<div class="md:col-span-3 lg:col-span-8 group relative bento-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] bg-slate-900/30 border border-white/5 overflow-hidden transition-all hover:border-amber-500/50 flex flex-col min-h-[400px]">
+  
+  <!-- Content Wrapper -->
+  <div class="relative z-10 flex flex-col h-full">
+    
+    <!-- Row: Icon & Text Content -->
+    <div class="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-12">
+      <!-- Icon Container -->
+      <div class="w-14 h-14 bg-amber-600/10 rounded-2xl flex items-center justify-center border border-amber-500/20 flex-shrink-0 group-hover:rotate-12 transition-transform duration-500">
+        <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V11a1 1 0 011-1h2m0 0l2 2m-2-2v4m-4.5 4h.5m.5 0h.5m-.5 0h-.5M17 11h1.5a1.5 1.5 0 011.5 1.5v2.5L17 15v-4z"></path>
+        </svg>
       </div>
 
-      <!-- SERVICE 2: SQUARE CARD (Lg: 4 cols) - Real Estate -->
-      <div class="md:col-span-3 lg:col-span-4 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-indigo-500/50">
-        <div class="w-14 h-14 bg-indigo-600/10 rounded-2xl flex items-center justify-center border border-indigo-500/20 mb-8">
-           <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-        </div>
-        <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Real Estate Solutions</h4>
-        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Dynamic property listing engines equipped with advanced map filters, immersive galleries, and automated agent routing pipelines.</p>
-        <div class="text-white mb-6"><span class="text-3xl font-black">Custom MLS</span></div>
-        <a href="#contact" style="font-family: inter;" class="text-indigo-400 font-bold flex items-center gap-2 group/btn">View Features <span class="group-hover/btn:translate-x-2 transition-transform">→</span></a>
+      <!-- Textual Content -->
+      <div class="flex-1">
+        <h4 style="font-family: inter;" class="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+          Logistics & Supply Chain
+        </h4>
+        <p class="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed">
+          Robust cargo portals integrated with instant shipping rate calculators, digital manifest forms, and automated fleet request scheduling.
+        </p>
       </div>
+    </div>
 
-      <!-- SERVICE 3: SQUARE CARD (Lg: 4 cols) - Restaurant Ordering -->
-      <div class="md:col-span-3 lg:col-span-4 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-emerald-500/50">
-        <div class="w-14 h-14 bg-emerald-600/10 rounded-2xl flex items-center justify-center border border-emerald-500/20 mb-8">
-           <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-        </div>
-        <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Restaurant Ordering</h4>
-        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Commission-free checkout dashboards built for local eateries, featuring interactive digital menus and instant payment integration.</p>
-        <div class="text-white mb-6"><span class="text-3xl font-black">Direct Sales</span></div>
-        <a href="#contact" style="font-family: inter;" class="text-emerald-400 font-bold flex items-center gap-2 group/btn">View Features <span class="group-hover/btn:translate-x-2 transition-transform">→</span></a>
-      </div>
-
-      <!-- SERVICE 4: WIDE CARD (Lg: 8 cols) - Logistics Company -->
-      <div class="md:col-span-3 lg:col-span-8 group relative bento-card p-10 rounded-[3rem] bg-slate-900/30 border border-white/5 transition-all hover:border-amber-500/50 flex flex-col md:flex-row items-center gap-10">
-        <div class="flex-1">
-          <div class="w-14 h-14 bg-amber-600/10 rounded-2xl flex items-center justify-center border border-amber-500/20 mb-8">
-            <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V11a1 1 0 011-1h2m0 0l2 2m-2-2v4m-4.5 4h.5m.5 0h.5m-.5 0h-.5M17 11h1.5a1.5 1.5 0 011.5 1.5v2.5L17 15v-4z"></path></svg>
+    <!-- Responsive Footer Section -->
+    <div class="mt-auto pt-8 border-t border-white/5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        
+        <!-- Metrics Label -->
+        <div class="space-y-1">
+          <span class="text-slate-500 text-[10px] block uppercase tracking-[0.2em] font-mono">
+            Operational Model
+          </span>
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase italic">
+              Full Sync
+            </span>
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse mb-1"></span>
           </div>
-          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-4">Logistics & Supply Chain</h4>
-          <p class="text-slate-400 text-sm max-w-sm mb-0 leading-relaxed">Robust cargo portals integrated with instant shipping rate calculators, digital manifest forms, and automated fleet request scheduling.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 text-center min-w-[200px]">
-            <p class="text-slate-500 text-xs uppercase mb-1">Operational Model</p>
-            <p class="text-4xl font-black text-white">Full Sync</p>
-            <a href="#contact" style="font-family: inter;" class="mt-4 block py-3 bg-amber-600 text-white rounded-xl font-bold text-sm">LAUNCH PORTAL</a>
+
+        <!-- Action Button -->
+        <div class="w-full sm:w-auto">
+          <a href="#contact" 
+             style="font-family: inter;" 
+             class="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-amber-600 rounded-2xl text-white text-xs uppercase font-black tracking-widest overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] active:scale-95">
+            <span class="relative z-10">Launch Portal</span>
+            <svg class="relative z-10 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          </a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Ambient Background Shape -->
+  <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-amber-600/5 rounded-full blur-[120px] group-hover:bg-amber-600/10 transition-colors pointer-events-none"></div>
+</div>
+
 
     </div>
   </div>
@@ -419,7 +619,7 @@
         <div class="space-y-4">
           <div class="flex items-center gap-2 font-mono text-xs text-blue-500 tracking-[0.3em] uppercase">
             <span class="inline-block w-8 h-px bg-blue-500"></span>
-            User.Origin()
+            ABOUT ME
           </div>
           <h3 style="font-family: inter;" class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] decode-text">
             ENGINEERING <br/> <span class="text-slate-700 italic">WITH INTENT</span>
@@ -428,7 +628,7 @@
 
         <div class="space-y-8 max-w-2xl">
           <p class="text-slate-400 text-xl font-light leading-relaxed">
-            /* I bridge the gap between <span class="text-white font-medium">heavy-duty backend logic</span> and <span class="text-white font-medium">high-fidelity frontend motion</span>. My goal isn't just to ship features, but to build scalable architectures. */
+           I bridge the gap between <span class="text-white font-medium">heavy-duty backend logic</span> and <span class="text-white font-medium">high-fidelity frontend motion</span>. My goal isn't just to ship features, but to build scalable architectures.
           </p>
           
           <div class="p-8 rounded-3xl bg-blue-600/5 border border-blue-600/10 backdrop-blur-md italic text-slate-300 border-l-4 border-l-blue-600">
@@ -440,7 +640,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-12 pt-12 border-t border-white/5">
           <div class="group">
             <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors"> Production</p>
-            <p class="text-4xl font-black text-white tracking-tighter">Frontend</p>
+            <p class="text-3xl font-black uppercase text-white tracking-tighter">Frontend</p>
           </div>
           <div class="group">
             <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors"> Engine Vitals</p>
@@ -473,8 +673,8 @@
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           
           <h4 style="font-family: inter;" class="text-white font-black text-2xl mb-8 flex items-center justify-between">
-            Stack.env
-            <span class="text-[10px] font-mono text-slate-500 px-2 py-1 bg-white/5 rounded border border-white/10">v.2.0.26</span>
+            Current Stack
+            <span class="text-[10px] font-mono text-slate-500 px-2 py-1 bg-white/5 rounded border border-white/10">5.2026</span>
           </h4>
 
           <div class="space-y-6">
@@ -483,8 +683,9 @@
               <p class="text-[10px] font-mono text-blue-500 uppercase tracking-widest mb-3">Core_Modules</p>
               <div class="flex flex-wrap gap-2">
                 <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">HTML</span>
-                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">CSS/TAILWIND</span>
-                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">JavaScript</span>
+                 <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">CSS</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">TAILWIND</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono hover:border-blue-500/50 transition-colors">JAVASCRIPT</span>
               </div>
             </div>
 
@@ -493,7 +694,7 @@
             <div class="mt-10 p-5 rounded-2xl bg-white/5 border border-dashed border-white/10">
               <div class="flex items-center gap-3 mb-2">
                 <div class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></div>
-                <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Active_Learning</p>
+                <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Active Learning</p>
               </div>
               <p class="text-sm text-white font-medium">React JS. / Typescript</p>
               <div class="mt-3 w-full h-1 bg-white/5 rounded-full overflow-hidden">
@@ -520,14 +721,14 @@
       <div class="max-w-2xl">
         <div class="flex items-center gap-3 mb-6">
           <div class="h-px w-8 bg-blue-500"></div>
-          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Tech.manifest</span>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">TECHNOLOGY manifest</span>
         </div>
         <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none">
           ENGINE <br/> <span class="text-slate-800 italic">CORE</span>
         </h3>
       </div>
       <p class="text-slate-500 text-lg font-light lg:max-w-sm border-l border-white/10 pl-6">
-        /* A carefully curated stack focused on <span class="text-white">semantic markup</span>, <span class="text-white">atomic utility design</span>, and <span class="text-white">asynchronous logic</span>. */
+         A carefully curated stack focused on <span class="text-white">semantic markup</span>, <span class="text-white">atomic utility design</span>, and <span class="text-white">asynchronous logic</span>. 
       </p>
     </div>
 
@@ -543,7 +744,7 @@
             </div>
             <span class="text-[10px] font-mono text-slate-600">ID: FE_01</span>
           </div>
-          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Interface_Construction</h4>
+          <h4 style="font-family: inter;" class="text-2xl uppercase font-bold text-white mb-8">Interface Construction</h4>
           <div class="space-y-4">
             <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-blue-500/5 transition-colors group/item">
               <span class="text-slate-300 font-mono text-sm">HTML5 Architecture</span>
@@ -574,7 +775,7 @@
             </div>
             <span class="text-[10px] font-mono text-slate-600">ID: PR_02</span>
           </div>
-          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Performance_Metrics</h4>
+          <h4 style="font-family: inter;" class="text-2xl uppercase font-bold text-white mb-8">Performance Metrics</h4>
           <div class="space-y-4">
             <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all" data-width="95%">
               <p class="text-slate-300 font-mono text-sm mb-1">Responsive Web Design</p>
@@ -601,12 +802,12 @@
             </div>
             <span class="text-[10px] font-mono text-slate-600">ID: TL_03</span>
           </div>
-          <h4 style="font-family: inter;" class="text-2xl font-bold text-white mb-8">Auxiliary_Tools</h4>
+          <h4 style="font-family: inter;" class="text-2xl uppercase font-bold text-white mb-8">Auxiliary Tools</h4>
           <div class="flex flex-wrap gap-2">
             <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">Figma</span>
             <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">Git</span>
             <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">GitHub</span>
-            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">VS_Code</span>
+            <span class="px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-xs font-mono text-slate-400 group-hover:border-purple-500/30 transition-all">VS Code</span>
           </div>
         </div>
       </div>
@@ -627,14 +828,14 @@
       <div class="max-w-2xl">
         <div class="flex items-center gap-3 mb-6">
           <div class="h-[1px] w-12 bg-blue-500"></div>
-          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Commitment.log</span>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Commitment log</span>
         </div>
-        <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
+        <h3 style="font-family: inter;" class="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
           DEVELOPMENT <br/> <span class="text-slate-800 italic">STANDARDS</span>
         </h3>
       </div>
       <p class="text-slate-500 text-lg font-light lg:max-w-sm border-l border-white/10 pl-6">
-        /* Rigid engineering rules applied to every codebase to ensure <span class="text-white">technical excellence</span> and <span class="text-white">zero-compromise speed</span>. */
+       Rigid engineering rules applied to every codebase to ensure <span class="text-white">technical excellence</span> and <span class="text-white">zero-compromise speed</span>. 
       </p>
     </div>
 
@@ -645,7 +846,7 @@
       <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.02] duration-500">
         <div class="bg-[#030816] p-10 rounded-[2.4rem] relative overflow-hidden h-full">
           <!-- Glass Accent Icon -->
-          <div class="absolute -top-6 -right-4 text-9xl font-serif text-blue-500/5 group-hover:text-blue-500/10 transition-colors">&lt;&gt;</div>
+          <div class="absolute -top-4 -right-1 text-8xl font-serif text-white/10 group-hover:text-blue-500/10 transition-colors">&lt;&gt;</div>
           
           <div class="flex gap-1 mb-8">
             <span class="text-blue-500 font-mono text-lg">⚡</span>
@@ -674,7 +875,7 @@
       <!-- COMMITMENT 2 (Staggered Down) - Clean Architecture -->
       <div class="group relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all hover:scale-[1.02] duration-500 lg:mt-20">
         <div class="bg-[#030816] p-10 rounded-[2.4rem] relative overflow-hidden">
-          <div class="absolute -top-6 -right-4 text-9xl font-serif text-indigo-500/5 group-hover:text-indigo-500/10 transition-colors">&#123;&#125;</div>
+          <div class="absolute -top-1 -right-1 text-8xl font-serif text-white/10 group-hover:text-indigo-500/10 transition-colors">&#123;&#125;</div>
           
           <div class="flex gap-1 mb-8">
             <span class="text-indigo-500 font-mono text-lg">⚙️</span>
@@ -746,10 +947,10 @@
         <div class="space-y-4">
           <div class="flex items-center gap-3">
             <span class="w-10 h-px bg-blue-500"></span>
-            <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Deployment_Ready</span>
+            <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Deployment Ready</span>
           </div>
           <h2 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
-            IGNITE YOUR <br/> <span class="text-slate-800 cta_shimmer italic">LEGACY</span>
+            IGNITE YOUR <br/> <span class="text-slate-800 cta_shimmer italic">PROJECT</span>
           </h2>
         </div>
 
@@ -761,17 +962,17 @@
         <div class="flex flex-wrap gap-10 py-10 border-y border-white/5">
           <div class="space-y-1">
             <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Protocol</p>
-            <p class="text-white font-bold tracking-tight">Full-Stack Architecture</p>
+            <p class="text-white uppercase font-bold tracking-tight">Frontend Architecture</p>
           </div>
           <div class="space-y-1">
             <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Velocity</p>
-            <p class="text-white font-bold tracking-tight">14-21 Day Sprint</p>
+            <p class="text-white uppercase font-bold tracking-tight">14-21 Day Sprint</p>
           </div>
           <div class="space-y-1">
             <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Availability</p>
             <div class="flex items-center gap-2">
               <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-              <p class="text-white font-bold tracking-tight">02 Spots Left</p>
+              <p class="text-white uppercase font-bold tracking-tight">Accepting projects</p>
             </div>
           </div>
         </div>
@@ -792,7 +993,7 @@
               
               <div class="space-y-2">
                 <h4 style="font-family: inter;" class="text-white text-2xl font-black uppercase tracking-tighter">Initiate Sequence</h4>
-                <p class="text-slate-500 text-sm font-mono">auth_key: required</p>
+                <p class="text-slate-500 text-sm font-mono">INITIATE DIGITAL JOURNEY TODAY</p>
               </div>
 
               <a href="#contact" style="font-family: inter;" class="flex items-center justify-center gap-3 w-full py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-500 hover:shadow-[0_0_50px_rgba(37,99,235,0.4)] transition-all active:scale-95 group/btn">
@@ -800,7 +1001,6 @@
                 <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
               
-              <p class="text-[10px] text-slate-600 uppercase tracking-widest">Secure_Handshake_Enabled</p>
             </div>
           </div>
         </div>
@@ -823,17 +1023,16 @@
       <div class="lg:col-span-8">
         <div class="flex items-center gap-3 mb-6">
           <div class="h-px w-12 bg-blue-500"></div>
-          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">Connect.exe</span>
+          <span class="text-blue-500 font-mono text-xs tracking-[0.5em] uppercase">lets Connect</span>
         </div>
         <h3 style="font-family: inter;" class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85]">
           INITIATE <br/> <span class="text-slate-800 italic">PHASE ONE</span>
         </h3>
       </div>
       <div class="lg:col-span-4 lg:text-right">
-        <p class="text-slate-500 text-sm font-mono uppercase tracking-widest mb-2">// Current_Status</p>
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
             <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-            <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest">Slots_Available</span>
+            <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest">Slots Available</span>
         </div>
       </div>
     </div>
@@ -870,12 +1069,21 @@
                 </div>
                 <span class="text-slate-600 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">02</span>
             </a>
+
+            <a href="https://github.com/yourusername" target="_blank" class="group flex items-center justify-between p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:border-slate-500/30 transition-all duration-500 hover:-translate-y-1">
+    <div class="flex items-center gap-5">
+        <div class="w-12 h-12 bg-slate-500/10 rounded-2xl flex items-center justify-center text-slate-300 group-hover:bg-slate-700 group-hover:text-white transition-all">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.52 11.52 0 0112 6.844c1.02.005 2.045.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.652.243 2.873.12 3.176.77.84 1.233 1.912 1.233 3.222 0 4.608-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </div>
+        <span class="text-white font-bold tracking-tight">GitHub</span>
+    </div>
+    <span class="text-slate-600 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">03</span>
+</a>
         </div>
 
-        <div class="flex gap-4 pt-10 border-t border-white/5">
-          <a href="#" class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400 hover:text-white hover:border-blue-500 transition-all tracking-widest">GITHUB</a>
-          <a href="#" class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400 hover:text-white hover:border-blue-500 transition-all tracking-widest">LINKEDIN</a>
-        </div>
+        
       </div>
 
       <!-- Right Side: Interaction Terminal (7 Cols) -->
@@ -966,7 +1174,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           <div class="flex flex-col">
-            <span class="text-xl font-black text-white tracking-tighter uppercase leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Chacha Collins</span>
+            <span style="font-family: inter;" class="text-xl font-black text-white tracking-tighter uppercase leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Chacha Collins</span>
             <span class="text-[9px] font-mono text-blue-400/80 uppercase tracking-[0.4em] mt-1.5">Frontend Developer</span>
           </div>
         </a>
@@ -981,9 +1189,9 @@
 
       <!-- Column 2: Navigation Index (3/12 Cols) -->
       <div class="md:col-span-3 space-y-5">
-        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Navigation</h4>
+        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">Navigation</h4>
         <ul class="space-y-3">
-          <li><a href="#work" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Projects</a></li>
+          <li><a href="#portfolio" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Projects</a></li>
           <li><a href="#about" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>About Me</a></li>
           <li><a href="#services" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Services</a></li>
           <li><a href="#contact" class="text-xs font-medium text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1.5 group"><span class="w-1 h-1 rounded-full bg-blue-500 scale-0 group-hover:scale-100 transition-transform"></span>Get In Touch</a></li>
@@ -992,35 +1200,78 @@
 
       <!-- Column 3: Focus Specialties (3/12 Cols) -->
       <div class="md:col-span-3 space-y-5">
-        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Focus Areas</h4>
+        <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">Focus Areas</h4>
         <ul class="space-y-2 text-xs font-medium text-slate-400 cursor-default">
-          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">01/</span> Custom E-Commerce</li>
-          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">02/</span> Real Estate Listing Engines</li>
-          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">03/</span> Logistics Operations Dashboards</li>
-          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">04/</span> Responsive Corporate Sites</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">01.</span> Real Estate Listing Engines</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">02.</span> Logistics Operations Dashboards</li>
+          <li class="flex items-center gap-2"><span class="text-blue-400/60 font-mono text-[10px]">03.</span> Responsive Corporate Sites</li>
         </ul>
       </div>
 
       <!-- Column 4: Contact & Top Actions (2/12 Cols) -->
       <div class="md:col-span-2 flex flex-col justify-between items-start md:items-end gap-6 md:gap-0">
-        <div class="space-y-4 w-full md:text-right">
-          <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">// Connect</h4>
-          <div class="flex md:justify-end gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-xs font-medium transition-colors">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-xs font-medium transition-colors">LinkedIn</a>
-          </div>
-        </div>
-        <a href="#" class="group w-12 h-12 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-blue-500/40 hover:bg-blue-600/10 shadow-lg transition-all duration-300">
-           <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-400 group-hover:-translate-y-0.5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
-        </a>
-      </div>
+
+  <div class="space-y-4 w-full md:text-right">
+    <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em]">
+      Connect
+    </h4>
+
+    <div class="flex md:justify-end gap-3">
+
+      <!-- WhatsApp -->
+    <a 
+  href="https://wa.me/255788296274?text=Hi%20Chacha%2C%20I%20would%20love%20to%20work%20on%20a%20project%20with%20you."
+  target="_blank"
+  class="group w-11 h-11 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-emerald-500/40 hover:bg-emerald-600/10 shadow-lg transition-all duration-300"
+>
+  <svg 
+    class="w-5 h-5 text-slate-400 group-hover:text-emerald-400 transition-all duration-300" 
+    fill="currentColor" 
+    viewBox="0 0 24 24"
+  >
+    <path d="M20.52 3.48A11.8 11.8 0 0012.04 0C5.5 0 .18 5.32.18 11.86c0 2.09.55 4.13 1.59 5.93L0 24l6.37-1.67a11.9 11.9 0 005.67 1.44h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.39-8.43zM12.05 21.3h-.01a9.4 9.4 0 01-4.79-1.31l-.34-.2-3.78.99 1.01-3.68-.22-.38a9.36 9.36 0 01-1.44-4.98c0-5.18 4.21-9.39 9.4-9.39 2.51 0 4.87.98 6.64 2.75a9.33 9.33 0 012.75 6.64c0 5.18-4.22 9.39-9.42 9.39zm5.16-7.03c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.63.14-.18.28-.72.9-.88 1.08-.16.19-.32.21-.6.07-.28-.14-1.16-.43-2.22-1.37-.82-.73-1.38-1.63-1.54-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.17.18-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.63-1.53-.86-2.09-.23-.55-.47-.48-.63-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34 0 1.38 1 2.71 1.14 2.89.14.19 1.97 3.01 4.78 4.22.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.33.23-.65.23-1.21.16-1.33-.07-.11-.25-.18-.53-.32z"/>
+  </svg>
+</a>
+
+
+      <!-- GitHub -->
+      <a 
+        href="https://github.com/yourusername"
+        target="_blank"
+        class="group w-11 h-11 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-slate-400/40 hover:bg-white/5 shadow-lg transition-all duration-300"
+      >
+        <svg class="w-5 h-5 text-slate-400 group-hover:text-white transition-all duration-300" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.729.082-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.52 11.52 0 0112 6.844c1.02.005 2.045.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.652.243 2.873.12 3.176.77.84 1.233 1.912 1.233 3.222 0 4.608-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a 
+        href="mailto:yourname@email.com"
+        class="group w-11 h-11 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-blue-500/40 hover:bg-blue-600/10 shadow-lg transition-all duration-300"
+      >
+        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+      </a>
 
     </div>
+  </div>
+
+  <!-- Back To Top -->
+  <a href="#" class="group w-12 h-12 bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-xl flex items-center justify-center hover:border-blue-500/40 hover:bg-blue-600/10 shadow-lg transition-all duration-300">
+    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-400 group-hover:-translate-y-0.5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </a>
+
+</div>
+</div>
 
     <!-- Row 2: Legal, Compliance, and Live Systems Metadata -->
     <div class="mt-10 flex flex-col sm:flex-row justify-between items-center gap-6 text-slate-500">
       <div class="flex flex-wrap gap-x-8 gap-y-2 items-center justify-center sm:justify-start">
-        <p class="text-[9px] font-mono uppercase tracking-widest text-slate-600">© 2026 <span class="text-slate-400">YOUR_NAME</span></p>
+        <p class="text-[9px] font-mono uppercase tracking-widest text-slate-600">© 2026 <span class="text-slate-400">CHACHA COLLINS</span></p>
         <a href="#privacy" class="text-[9px] font-mono uppercase tracking-widest text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
         <a href="#terms" class="text-[9px] font-mono uppercase tracking-widest text-slate-600 hover:text-slate-400 transition-colors">Terms of Service</a>
       </div>
